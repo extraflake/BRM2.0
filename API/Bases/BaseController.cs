@@ -3,13 +3,14 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using API.Repositories.Interface;
+using API.Services.Interface;
 using Microsoft.AspNetCore.Mvc;
 
 namespace API.Bases
 {
     public class BaseController<TEntity, TRepository> : ControllerBase
         where TEntity : class, IEntity
-        where TRepository : IRepository<TEntity>
+        where TRepository : IService<TEntity>
     {
         private readonly TRepository _repository;
 
