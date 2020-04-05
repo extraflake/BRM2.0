@@ -12618,11 +12618,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "E:\\Project\\BRM\\API\\API.csproj",
+      "projectUniqueName": "E:\\Project\\BRM2.0\\API\\API.csproj",
       "projectName": "API",
-      "projectPath": "E:\\Project\\BRM\\API\\API.csproj",
+      "projectPath": "E:\\Project\\BRM2.0\\API\\API.csproj",
       "packagesPath": "C:\\Users\\NaufalAj\\.nuget\\packages\\",
-      "outputPath": "E:\\Project\\BRM\\API\\obj\\",
+      "outputPath": "E:\\Project\\BRM2.0\\API\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"

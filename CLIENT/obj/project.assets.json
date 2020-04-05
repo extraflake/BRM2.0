@@ -12637,11 +12637,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "E:\\Project\\BRM\\CLIENT\\CLIENT.csproj",
+      "projectUniqueName": "E:\\Project\\BRM2.0\\CLIENT\\CLIENT.csproj",
       "projectName": "CLIENT",
-      "projectPath": "E:\\Project\\BRM\\CLIENT\\CLIENT.csproj",
+      "projectPath": "E:\\Project\\BRM2.0\\CLIENT\\CLIENT.csproj",
       "packagesPath": "C:\\Users\\NaufalAj\\.nuget\\packages\\",
-      "outputPath": "E:\\Project\\BRM\\CLIENT\\obj\\",
+      "outputPath": "E:\\Project\\BRM2.0\\CLIENT\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
@@ -12660,8 +12660,8 @@
       "frameworks": {
         "netcoreapp2.1": {
           "projectReferences": {
-            "E:\\Project\\BRM\\API\\API.csproj": {
-              "projectPath": "E:\\Project\\BRM\\API\\API.csproj"
+            "E:\\Project\\BRM2.0\\API\\API.csproj": {
+              "projectPath": "E:\\Project\\BRM2.0\\API\\API.csproj"
             }
           }
         }
