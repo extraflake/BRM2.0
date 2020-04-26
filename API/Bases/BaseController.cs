@@ -9,7 +9,7 @@ using Microsoft.AspNetCore.Mvc;
 namespace API.Bases
 {
     public class BaseController<TEntity, TRepository> : ControllerBase
-        where TEntity : class, IEntity
+        where TEntity : class
         where TRepository : IService<TEntity>
     {
         private readonly TRepository _repository;
@@ -33,26 +33,22 @@ namespace API.Bases
         [HttpPost]
         public async Task<ActionResult<TEntity>> Post(TEntity entity)
         {
-            await _repository.Post(entity);
-            return CreatedAtAction("Get", new { id = entity.Id }, entity);
+            var post = await _repository.Post(entity);
+            return Ok(post);
         }
 
         [HttpPut("{id}")]
         public async Task<ActionResult> Put(string id, TEntity entity)
         {
-            if (id != entity.Id)
-            {
-                return BadRequest();
-            }
             await _repository.Put(entity);
             return NoContent();
         }
 
         [HttpDelete("{id}")]
-        public async Task<ActionResult<TEntity>> Delete(string id)
+        public async Task<ActionResult<int>> Delete(string id)
         {
             var delete = await _repository.Delete(id);
-            if (delete == null)
+            if (delete.Equals(0))
             {
                 return NotFound();
             }

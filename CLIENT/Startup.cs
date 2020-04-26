@@ -35,10 +35,8 @@ namespace CLIENT
             });
 
             services.AddDbContext<MyContext>(options =>
-                options.UseSqlServer(
-                    Configuration.GetConnectionString("DefaultConnection")));
-            services.AddDefaultIdentity<IdentityUser>()
-                .AddEntityFrameworkStores<MyContext>();
+                options.UseMySql(
+                    Configuration.GetConnectionString("Storage")));
 
             services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_1);
         }
