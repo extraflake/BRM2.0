@@ -11,7 +11,7 @@ using System.Threading.Tasks;
 namespace API.Services
 {
     public class GeneralService<TEntity, TService> : IService<TEntity>
-        where TEntity : class, IEntity
+        where TEntity : class
         where TService : IRepository<TEntity>
     {
         private readonly GeneralRepository<TEntity, MyContext> _generalRepository;
@@ -21,7 +21,7 @@ namespace API.Services
             _generalRepository = generalRepository;
         }
 
-        public Task<TEntity> Delete(string id)
+        public Task<int> Delete(string id)
         {
             return _generalRepository.Delete(id);
         }
@@ -36,12 +36,12 @@ namespace API.Services
             return _generalRepository.Get(id);
         }
 
-        public Task<TEntity> Post(TEntity entity)
+        public Task<int> Post(TEntity entity)
         {
             return _generalRepository.Post(entity);
         }
 
-        public Task<TEntity> Put(TEntity entity)
+        public Task<int> Put(TEntity entity)
         {
             return _generalRepository.Put(entity);
         }

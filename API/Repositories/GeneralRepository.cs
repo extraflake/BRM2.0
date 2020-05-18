@@ -10,7 +10,7 @@ using System.Threading.Tasks;
 namespace API.Repositories
 {
     public class GeneralRepository<TEntity, TContext> : IRepository<TEntity>
-        where TEntity : class, IEntity
+        where TEntity : class
         where TContext : MyContext
     {
         private readonly MyContext _myContext;
@@ -20,40 +20,58 @@ namespace API.Repositories
             _myContext = myContext;
         }
 
-        public async Task<TEntity> Delete(string id)
+        public async Task<int> Delete(string id)
         {
             var entity = await Get(id);
             if (entity == null)
             {
-                return entity;
+                return 0;
             }
             _myContext.Set<TEntity>().Remove(entity);
-            await _myContext.SaveChangesAsync();
-            return entity;
+            var result = await _myContext.SaveChangesAsync();
+            return result;
         }
 
         public async Task<List<TEntity>> Get()
         {
-            return await _myContext.Set<TEntity>().ToListAsync();
+            var result = await _myContext.Set<TEntity>().ToListAsync();
+            if(!result.Count().Equals(0))
+            {
+                return result;
+            }
+            return null;
         }
 
         public async Task<TEntity> Get(string id)
         {
-            return await _myContext.Set<TEntity>().FindAsync(id);
+            var result = await _myContext.Set<TEntity>().FindAsync(id);
+            if(result != null)
+            {
+                return result;
+            }
+            return null;
         }
 
-        public async Task<TEntity> Post(TEntity entity)
+        public async Task<int> Post(TEntity entity)
         {
             await _myContext.Set<TEntity>().AddAsync(entity);
-            await _myContext.SaveChangesAsync();
-            return entity;
+            var result = await _myContext.SaveChangesAsync();
+            if(result > 0)
+            {
+                return result;
+            }
+            return result;
         }
 
-        public async Task<TEntity> Put(TEntity entity)
+        public async Task<int> Put(TEntity entity)
         {
             _myContext.Entry(entity).State = EntityState.Modified;
-            await _myContext.SaveChangesAsync();
-            return entity;
+            var result = await _myContext.SaveChangesAsync();
+            if(result > 0)
+            {
+                return result;
+            }
+            return result;
         }
     }
 }
