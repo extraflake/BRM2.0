@@ -9,7 +9,7 @@ using System.Threading.Tasks;
 namespace API.Models
 {
     [Table("tb_m_room")]
-    public class Room : BaseModel, IEntity
+    public class Room : BaseModel
     {
         [Key]
         public string Id { get; set; }

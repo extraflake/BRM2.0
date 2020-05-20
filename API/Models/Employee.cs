@@ -13,13 +13,17 @@ namespace API.Models
     {
         [Key]
         [ForeignKey("User")]
-        public string Id { get; set; }
         public string NIK { get; set; }
         public string First_Name { get; set; }
         public string Last_Name { get; set; }
         public bool Gender { get; set; }
         public string Phone { get; set; }
+        public string Email { get; set; }
 
         public virtual User User { get; set; }
+
+        [ForeignKey("District")]
+        public int Hiring_Location { get; set; }
+        public virtual District District { get; set; }
     }
 }

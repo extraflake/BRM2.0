@@ -22,10 +22,9 @@ namespace API.Handlers
 
             var claims = new List<Claim>();
             claims.Add(new Claim(JwtRegisteredClaimNames.Jti, Guid.NewGuid().ToString()));
-            claims.Add(new Claim("id", "ID"));
-            claims.Add(new Claim("name", "ID"));
-            claims.Add(new Claim("email", "ID"));
-            claims.Add(new Claim("role", "ID"));
+            claims.Add(new Claim("name", accountVM.Name));
+            claims.Add(new Claim("email", accountVM.Email));
+            claims.Add(new Claim("role", accountVM.Role));
 
             var token = new JwtSecurityToken(
                 issuer: "www.brmclient.azurewebsites.net",

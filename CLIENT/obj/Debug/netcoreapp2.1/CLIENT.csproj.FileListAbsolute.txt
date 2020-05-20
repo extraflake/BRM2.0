@@ -48,13 +48,13 @@ E:\Project\BRM2.0\CLIENT\obj\Debug\netcoreapp2.1\CLIENT.csprojAssemblyReference.
 E:\Project\BRM2.0\CLIENT\obj\Debug\netcoreapp2.1\CLIENT.csproj.CoreCompileInputs.cache
 E:\Project\BRM2.0\CLIENT\obj\Debug\netcoreapp2.1\CLIENT.RazorAssemblyInfo.cache
 E:\Project\BRM2.0\CLIENT\obj\Debug\netcoreapp2.1\CLIENT.RazorAssemblyInfo.cs
-E:\Project\BRM2.0\CLIENT\obj\Debug\netcoreapp2.1\UserSecretsAssemblyInfo.cs
 E:\Project\BRM2.0\CLIENT\obj\Debug\netcoreapp2.1\CLIENT.AssemblyInfoInputs.cache
 E:\Project\BRM2.0\CLIENT\obj\Debug\netcoreapp2.1\CLIENT.AssemblyInfo.cs
 E:\Project\BRM2.0\CLIENT\obj\Debug\netcoreapp2.1\CLIENT.TagHelpers.input.cache
 E:\Project\BRM2.0\CLIENT\obj\Debug\netcoreapp2.1\CLIENT.TagHelpers.output.cache
 E:\Project\BRM2.0\CLIENT\obj\Debug\netcoreapp2.1\CLIENT.RazorCoreGenerate.cache
 E:\Project\BRM2.0\CLIENT\obj\Debug\netcoreapp2.1\Razor\Areas\Identity\Pages\_ViewStart.g.cshtml.cs
+E:\Project\BRM2.0\CLIENT\obj\Debug\netcoreapp2.1\Razor\Views\Accounts\Index.g.cshtml.cs
 E:\Project\BRM2.0\CLIENT\obj\Debug\netcoreapp2.1\Razor\Views\Home\About.g.cshtml.cs
 E:\Project\BRM2.0\CLIENT\obj\Debug\netcoreapp2.1\Razor\Views\Home\Contact.g.cshtml.cs
 E:\Project\BRM2.0\CLIENT\obj\Debug\netcoreapp2.1\Razor\Views\Home\Index.g.cshtml.cs
@@ -72,3 +72,7 @@ E:\Project\BRM2.0\CLIENT\obj\Debug\netcoreapp2.1\CLIENT.Views.pdb
 E:\Project\BRM2.0\CLIENT\obj\Debug\netcoreapp2.1\CLIENT.csproj.CopyComplete
 E:\Project\BRM2.0\CLIENT\obj\Debug\netcoreapp2.1\CLIENT.dll
 E:\Project\BRM2.0\CLIENT\obj\Debug\netcoreapp2.1\CLIENT.pdb
+E:\Project\BRM2.0\CLIENT\obj\Debug\netcoreapp2.1\UserSecretsAssemblyInfo.cs
+E:\Project\BRM2.0\CLIENT\obj\Debug\netcoreapp2.1\Razor\Views\Shared\_LayoutAccount.g.cshtml.cs
+E:\Project\BRM2.0\CLIENT\obj\Debug\netcoreapp2.1\Razor\Views\Shared\_LayoutAdministrator.g.cshtml.cs
+E:\Project\BRM2.0\CLIENT\obj\Debug\netcoreapp2.1\Razor\Views\Employees\Index.g.cshtml.cs
