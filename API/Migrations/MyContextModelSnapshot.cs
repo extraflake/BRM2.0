@@ -125,6 +125,30 @@ namespace API.Migrations
                     b.ToTable("tb_m_class");
                 });
 
+            modelBuilder.Entity("API.Models.Customer", b =>
+                {
+                    b.Property<string>("Id")
+                        .ValueGeneratedOnAdd();
+
+                    b.Property<string>("Address");
+
+                    b.Property<int?>("DistrictId");
+
+                    b.Property<string>("Name");
+
+                    b.Property<string>("Phone");
+
+                    b.Property<string>("RelationManagerNIK");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("DistrictId");
+
+                    b.HasIndex("RelationManagerNIK");
+
+                    b.ToTable("Customers");
+                });
+
             modelBuilder.Entity("API.Models.District", b =>
                 {
                     b.Property<int>("Id")
@@ -316,6 +340,17 @@ namespace API.Migrations
                     b.HasOne("API.Models.Employee", "Employee")
                         .WithMany()
                         .HasForeignKey("trainer");
+                });
+
+            modelBuilder.Entity("API.Models.Customer", b =>
+                {
+                    b.HasOne("API.Models.District", "District")
+                        .WithMany()
+                        .HasForeignKey("DistrictId");
+
+                    b.HasOne("API.Models.Employee", "RelationManager")
+                        .WithMany()
+                        .HasForeignKey("RelationManagerNIK");
                 });
 
             modelBuilder.Entity("API.Models.District", b =>

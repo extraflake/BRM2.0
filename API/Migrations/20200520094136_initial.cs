@@ -9,6 +9,18 @@ namespace API.Migrations
         protected override void Up(MigrationBuilder migrationBuilder)
         {
             migrationBuilder.CreateTable(
+                name: "tb_m_account",
+                columns: table => new
+                {
+                    Id = table.Column<string>(nullable: false),
+                    Password = table.Column<string>(nullable: true)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_tb_m_account", x => x.Id);
+                });
+
+            migrationBuilder.CreateTable(
                 name: "tb_m_batch",
                 columns: table => new
                 {
@@ -102,18 +114,6 @@ namespace API.Migrations
                 });
 
             migrationBuilder.CreateTable(
-                name: "Users",
-                columns: table => new
-                {
-                    Id = table.Column<string>(nullable: false),
-                    Password = table.Column<string>(nullable: true)
-                },
-                constraints: table =>
-                {
-                    table.PrimaryKey("PK_Users", x => x.Id);
-                });
-
-            migrationBuilder.CreateTable(
                 name: "tb_m_district",
                 columns: table => new
                 {
@@ -141,8 +141,7 @@ namespace API.Migrations
                     Update_Date = table.Column<DateTimeOffset>(nullable: false),
                     Created_By = table.Column<string>(nullable: true),
                     Updated_By = table.Column<string>(nullable: true),
-                    Id = table.Column<string>(nullable: false),
-                    NIK = table.Column<string>(nullable: true),
+                    NIK = table.Column<string>(nullable: false),
                     First_Name = table.Column<string>(nullable: true),
                     Last_Name = table.Column<string>(nullable: true),
                     Gender = table.Column<bool>(nullable: false),
@@ -152,7 +151,7 @@ namespace API.Migrations
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_tb_m_employee", x => x.Id);
+                    table.PrimaryKey("PK_tb_m_employee", x => x.NIK);
                     table.ForeignKey(
                         name: "FK_tb_m_employee_tb_m_district_Hiring_Location",
                         column: x => x.Hiring_Location,
@@ -160,9 +159,9 @@ namespace API.Migrations
                         principalColumn: "Id",
                         onDelete: ReferentialAction.Cascade);
                     table.ForeignKey(
-                        name: "FK_tb_m_employee_Users_Id",
-                        column: x => x.Id,
-                        principalTable: "Users",
+                        name: "FK_tb_m_employee_tb_m_account_NIK",
+                        column: x => x.NIK,
+                        principalTable: "tb_m_account",
                         principalColumn: "Id",
                         onDelete: ReferentialAction.Cascade);
                 });
@@ -201,7 +200,7 @@ namespace API.Migrations
                         name: "FK_tb_m_batch_class_tb_m_employee_trainer",
                         column: x => x.trainer,
                         principalTable: "tb_m_employee",
-                        principalColumn: "Id",
+                        principalColumn: "NIK",
                         onDelete: ReferentialAction.Restrict);
                 });
 
@@ -222,7 +221,7 @@ namespace API.Migrations
                         name: "FK_tb_tr_employee_role_tb_m_employee_Employee_Id",
                         column: x => x.Employee_Id,
                         principalTable: "tb_m_employee",
-                        principalColumn: "Id",
+                        principalColumn: "NIK",
                         onDelete: ReferentialAction.Restrict);
                     table.ForeignKey(
                         name: "FK_tb_tr_employee_role_tb_m_role_Role_Id",
@@ -372,7 +371,7 @@ namespace API.Migrations
                 name: "tb_m_district");
 
             migrationBuilder.DropTable(
-                name: "Users");
+                name: "tb_m_account");
 
             migrationBuilder.DropTable(
                 name: "tb_m_province");
