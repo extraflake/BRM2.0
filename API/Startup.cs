@@ -39,8 +39,10 @@ namespace API
                     Configuration.GetConnectionString("Storage")));
 
             services.AddScoped<RoomRepository>();
+            services.AddScoped<EmployeeRepository>();
             
             services.AddScoped<RoomService>();
+            services.AddScoped<EmployeeService>();
 
             string securityKey = "this_is_security_key_longest_i_have_ever_been_written_before";
             var symmetricSecurityKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(securityKey));

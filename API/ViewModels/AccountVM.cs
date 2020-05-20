@@ -8,11 +8,11 @@ namespace API.ViewModels
 {
     public class AccountVM
     {
-        [Key]
-        public string Id { get; set; }
-        public string Name { get; set; }
         public string Email { get; set; }
-        public string Password { get; set; }
         public string Role { get; set; }
+        public string RoleDescription { get; set; }
+        public bool Enabled { get; set; }
+        public string Name { get; set; }
+        public string Password { get; set; }
     }
 }
