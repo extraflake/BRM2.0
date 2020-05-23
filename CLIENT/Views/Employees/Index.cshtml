@@ -17,12 +17,12 @@
         </div>
     </div>
     <br />
-    <table class="table table-hover" id="table">
+    <table class="table dt-responsive nowrap" id="table" width="100%" cellspacing="0">
         <thead>
             <tr>
-                @*<th style="background-color:skyblue;color:white;text-align:center;width:100px">
+                <th style="background-color:skyblue;color:white;text-align:center;width:100px">
                     No.
-                </th>*@
+                </th>
                 <th style="background-color:skyblue;color:white;text-align:center">
                     Name
                 </th>
@@ -40,7 +40,6 @@
                 </th>
             </tr>
         </thead>
-        <tbody class="tbody"></tbody>
     </table>
 </div>
 <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
@@ -97,61 +96,127 @@
         </div>
     </div>
 </div>
-<div class="modal fade" id="myModalUpdateId" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
-    <div class="modal-dialog">
-        <div class="modal-content">
-            <div class="modal-header">
-                <h4 class="modal-title" id="myModalLabelUpdate">Employee Form</h4>
-                <button type="button" class="close" data-dismiss="modal">×</button>
-            </div>
-            <div class="modal-body">
-                <div class="form-group">
-                    <label for="Id">Id</label>
-                    <input type="text" class="form-control" id="IdUpdate" placeholder="Id" onkeypress="return isNumberKey(event)" />
+@*<div class="modal fade" id="myModalUpdateId" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h4 class="modal-title" id="myModalLabelUpdate">Employee Form</h4>
+                    <button type="button" class="close" data-dismiss="modal">×</button>
                 </div>
-                <div class="form-group">
-                    <label for="Email">Email</label>
-                    <input type="email" class="form-control" id="EmailUpdate" placeholder="Email" disabled="disabled" />
-                </div>
-                <div class="form-group" hidden="hidden">
-                    <label for="FirstName">First Name</label>
-                    <input type="text" class="form-control" id="FirstNameUpdate" placeholder="First Name" />
-                </div>
-                <div class="form-group" hidden="hidden">
-                    <label for="LastName">Last Name</label>
-                    <input type="text" class="form-control" id="LastNameUpdate" placeholder="Last Name" />
-                </div>
-                <div class="form-group" hidden="hidden">
-                    <label for="Hiring_Location">Hiring Location</label>
-                    <input type="text" class="form-control" id="Hiring_LocationUpdate" placeholder="Hiring Location" />
-                </div>
-                <div class="form-group" hidden="hidden">
-                    <label for="Phone">Phone</label>
-                    <div class="form-inline">
-                        <input type="number" class="form-control col-md-2" placeholder="+62" disabled="disabled" />
-                        <input type="text" class="form-control col-md-10" id="PhoneUpdate" onchange="ValidatePhone();" onkeypress="return isNumberKey(event)" />
+                <div class="modal-body">
+                    <div class="form-group">
+                        <label for="Id">Id</label>
+                        <input type="text" class="form-control" id="IdUpdate" placeholder="Id" onkeypress="return isNumberKey(event)" />
+                    </div>
+                    <div class="form-group">
+                        <label for="Email">Email</label>
+                        <input type="email" class="form-control" id="EmailUpdate" placeholder="Email" disabled="disabled" />
+                    </div>
+                    <div class="form-group" hidden="hidden">
+                        <label for="FirstName">First Name</label>
+                        <input type="text" class="form-control" id="FirstNameUpdate" placeholder="First Name" />
+                    </div>
+                    <div class="form-group" hidden="hidden">
+                        <label for="LastName">Last Name</label>
+                        <input type="text" class="form-control" id="LastNameUpdate" placeholder="Last Name" />
+                    </div>
+                    <div class="form-group" hidden="hidden">
+                        <label for="Hiring_Location">Hiring Location</label>
+                        <input type="text" class="form-control" id="Hiring_LocationUpdate" placeholder="Hiring Location" />
+                    </div>
+                    <div class="form-group" hidden="hidden">
+                        <label for="Phone">Phone</label>
+                        <div class="form-inline">
+                            <input type="number" class="form-control col-md-2" placeholder="+62" disabled="disabled" />
+                            <input type="text" class="form-control col-md-10" id="PhoneUpdate" onchange="ValidatePhone();" onkeypress="return isNumberKey(event)" />
+                        </div>
                     </div>
                 </div>
-            </div>
-            <div class="modal-footer">
-                <button type="button" class="btn btn-primary" style="background-color:skyblue;border-color:skyblue" id="Update" onclick="ValidateUpdate();">Update</button>
-                <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-primary" style="background-color:skyblue;border-color:skyblue" id="Update" onclick="ValidateUpdate();">Update</button>
+                    <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                </div>
             </div>
         </div>
-    </div>
-</div>
+    </div>*@
 
 @section scripts {
-    <script src="~/js/jqueryui/jquery-ui.js"></script>
-    <link href="~/js/jqueryui/jquery-ui.css" rel="stylesheet" />
-    <script src="~/js/jquery/jquery.form.js"></script>
-    <script src="~/js/bs-custom-file-input/bs-custom-file-input.min.js"></script>
-    <script src="~/js/select2/dist/js/select2.min.js"></script>
-    <link href="~/js/select2/dist/css/select2.min.css" rel="stylesheet" />
+    <link href="~/js/datatables/responsive.bootstrap.min.css" rel="stylesheet" />
+
     <script src="~/js/datatables/jquery.dataTables.min.js"></script>
+    <script src="~/js/datatables/dataTables.bootstrap4.min.js"></script>
     <script src="~/js/sweetalert2/sweetalert2@9.js"></script>
-    <script src="~/Script/EmployeeScript.js"></script>
     <link href="~/css/uploaddownload.css" rel="stylesheet" />
+
+    <script>
+        var table = null;
+        $(document).ready(function () {
+            table = $('#table').DataTable({
+                "serverside": true,
+                "filter": true,
+                "orderMulti": false,
+                "lengthMenu": [[5, 10, 25, 50, 100], [5, 10, 25, 50, 100]],
+                "ajax": {
+                    "url": "/Employees/LoadEmployee",
+                    "dataSrc": ''
+                },
+                "columnDefs":
+                    [
+                        {
+                            "targets": [0],
+                            "searchable": false,
+                            "orderable": false,
+                            "className": "text-center"
+                        },
+                        {
+                            "targets": [1],
+                            "className": "text-center"
+                        },
+                        {
+                            "targets": [2],
+                            "className": "text-center"
+                        },
+                        {
+                            "targets": [3],
+                            "className": "text-center"
+                        },
+                        {
+                            "targets": [4],
+                            "className": "text-center"
+                        },
+                        {
+                            "targets": [5],
+                            "searchable": false,
+                            "orderable": false
+                        }],
+                "order": [[ 1, 'asc' ]],
+                "columns": [
+                    { "data": "id", "name": "id", "autoWidth": true },
+                    { "data": "name", "name": "name", "autoWidth": true },
+                    { "data": "email", "name": "email", "autoWidth": true },
+                    { "data": "location", "name": "location", "autoWidth": true },
+                    { "data": "phone", "name": "phone", "autoWidth": true },
+                    {
+                        "render": function (data, type, full, meta) {
+                            return '<a class="btn btn-info" href="#" onclick="GetById(' + full.id + ')">Edit</a> <a class="btn btn-danger" href="#" onclick="Delete(' + full.id + ')">Delete</a>';
+                        }
+                    }
+                ]
+            });
+            table.on('order.dt search.dt', function () {
+                table.column(0, { search: 'applied', order: 'applied' }).nodes().each(function (cell, i) {
+                    cell.innerHTML = i + 1;
+                });
+            }).draw();
+        });
+        function LoadData() {
+            $.ajax({
+                url: "/Employees/LoadEmployee",
+                type: "GET",
+                dataType: "json"
+            });
+        }
+    </script>
 }
 
 <style>
