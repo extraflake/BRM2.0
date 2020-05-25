@@ -38,9 +38,11 @@ namespace API
                 options.UseMySql(
                     Configuration.GetConnectionString("Storage")));
 
+            services.AddScoped<CustomerRepository>();
             services.AddScoped<RoomRepository>();
             services.AddScoped<EmployeeRepository>();
-            
+
+            services.AddScoped<CustomerService>();
             services.AddScoped<RoomService>();
             services.AddScoped<EmployeeService>();
 

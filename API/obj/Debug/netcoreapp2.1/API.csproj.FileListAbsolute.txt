@@ -25,3 +25,17 @@ E:\Project\BRM2.0\API\obj\Debug\netcoreapp2.1\API.AssemblyInfo.cs
 E:\Project\BRM2.0\API\obj\Debug\netcoreapp2.1\API.RazorTargetAssemblyInfo.cache
 E:\Project\BRM2.0\API\obj\Debug\netcoreapp2.1\API.dll
 E:\Project\BRM2.0\API\obj\Debug\netcoreapp2.1\API.pdb
+D:\Github\BRM2.0\API\bin\Debug\netcoreapp2.1\API.deps.json
+D:\Github\BRM2.0\API\bin\Debug\netcoreapp2.1\API.runtimeconfig.json
+D:\Github\BRM2.0\API\bin\Debug\netcoreapp2.1\API.runtimeconfig.dev.json
+D:\Github\BRM2.0\API\bin\Debug\netcoreapp2.1\API.dll
+D:\Github\BRM2.0\API\bin\Debug\netcoreapp2.1\API.pdb
+D:\Github\BRM2.0\API\obj\Debug\netcoreapp2.1\API.csprojAssemblyReference.cache
+D:\Github\BRM2.0\API\obj\Debug\netcoreapp2.1\API.csproj.CoreCompileInputs.cache
+D:\Github\BRM2.0\API\obj\Debug\netcoreapp2.1\API.RazorAssemblyInfo.cache
+D:\Github\BRM2.0\API\obj\Debug\netcoreapp2.1\API.RazorAssemblyInfo.cs
+D:\Github\BRM2.0\API\obj\Debug\netcoreapp2.1\API.AssemblyInfoInputs.cache
+D:\Github\BRM2.0\API\obj\Debug\netcoreapp2.1\API.AssemblyInfo.cs
+D:\Github\BRM2.0\API\obj\Debug\netcoreapp2.1\API.RazorTargetAssemblyInfo.cache
+D:\Github\BRM2.0\API\obj\Debug\netcoreapp2.1\API.dll
+D:\Github\BRM2.0\API\obj\Debug\netcoreapp2.1\API.pdb

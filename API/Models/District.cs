@@ -17,5 +17,7 @@ namespace API.Models
         [ForeignKey("Province")]
         public int Province_Id { get; set; }
         public virtual Province Province { get; set; }
+
+        public ICollection<Customer> Customers { get; set; }
     }
 }

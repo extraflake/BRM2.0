@@ -22,6 +22,7 @@ namespace API.Context
 
         public DbSet<Province> Provinces { get; set; }
         public DbSet<District> Districts { get; set; }
+        public DbSet<Customer> Customers { get; set; }
 
         public DbSet<API.Models.Type> Types { get; set; }
         public DbSet<Asset> Assets { get; set; }
