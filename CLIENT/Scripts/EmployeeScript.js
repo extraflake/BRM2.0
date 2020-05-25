@@ -7,7 +7,7 @@ $(document).ready(function () {
         "orderMulti": false,
         "lengthMenu": [[5, 10, 25, 50, 100], [5, 10, 25, 50, 100]],
         "ajax": {
-            "url": "/Departments/LoadData",
+            "url": "/Employees/LoadEmployee",
             "type": "GET",
             "datatype": "json"
         },
