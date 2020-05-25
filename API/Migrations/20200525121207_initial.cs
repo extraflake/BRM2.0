@@ -205,6 +205,34 @@ namespace API.Migrations
                 });
 
             migrationBuilder.CreateTable(
+                name: "tb_m_customer",
+                columns: table => new
+                {
+                    Id = table.Column<string>(nullable: false),
+                    Name = table.Column<string>(nullable: true),
+                    Address = table.Column<string>(nullable: true),
+                    Phone = table.Column<string>(nullable: true),
+                    Relation_Manager = table.Column<string>(nullable: true),
+                    District = table.Column<int>(nullable: false)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_tb_m_customer", x => x.Id);
+                    table.ForeignKey(
+                        name: "FK_tb_m_customer_tb_m_district_District",
+                        column: x => x.District,
+                        principalTable: "tb_m_district",
+                        principalColumn: "Id",
+                        onDelete: ReferentialAction.Cascade);
+                    table.ForeignKey(
+                        name: "FK_tb_m_customer_tb_m_employee_Relation_Manager",
+                        column: x => x.Relation_Manager,
+                        principalTable: "tb_m_employee",
+                        principalColumn: "NIK",
+                        onDelete: ReferentialAction.Restrict);
+                });
+
+            migrationBuilder.CreateTable(
                 name: "tb_tr_employee_role",
                 columns: table => new
                 {
@@ -310,6 +338,16 @@ namespace API.Migrations
                 column: "trainer");
 
             migrationBuilder.CreateIndex(
+                name: "IX_tb_m_customer_District",
+                table: "tb_m_customer",
+                column: "District");
+
+            migrationBuilder.CreateIndex(
+                name: "IX_tb_m_customer_Relation_Manager",
+                table: "tb_m_customer",
+                column: "Relation_Manager");
+
+            migrationBuilder.CreateIndex(
                 name: "IX_tb_m_district_Province_Id",
                 table: "tb_m_district",
                 column: "Province_Id");
@@ -342,6 +380,9 @@ namespace API.Migrations
 
             migrationBuilder.DropTable(
                 name: "tb_m_class");
+
+            migrationBuilder.DropTable(
+                name: "tb_m_customer");
 
             migrationBuilder.DropTable(
                 name: "tb_tr_employee_role");

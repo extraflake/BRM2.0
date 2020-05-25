@@ -9,8 +9,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace API.Migrations
 {
     [DbContext(typeof(MyContext))]
-    [Migration("20200520102006_addcustomermodel")]
-    partial class addcustomermodel
+    [Migration("20200525121207_initial")]
+    partial class initial
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -134,21 +134,21 @@ namespace API.Migrations
 
                     b.Property<string>("Address");
 
-                    b.Property<int?>("DistrictId");
+                    b.Property<int>("District");
 
                     b.Property<string>("Name");
 
                     b.Property<string>("Phone");
 
-                    b.Property<string>("RelationManagerNIK");
+                    b.Property<string>("Relation_Manager");
 
                     b.HasKey("Id");
 
-                    b.HasIndex("DistrictId");
+                    b.HasIndex("District");
 
-                    b.HasIndex("RelationManagerNIK");
+                    b.HasIndex("Relation_Manager");
 
-                    b.ToTable("Customers");
+                    b.ToTable("tb_m_customer");
                 });
 
             modelBuilder.Entity("API.Models.District", b =>
@@ -346,13 +346,14 @@ namespace API.Migrations
 
             modelBuilder.Entity("API.Models.Customer", b =>
                 {
-                    b.HasOne("API.Models.District", "District")
+                    b.HasOne("API.Models.District", "Districtx")
                         .WithMany()
-                        .HasForeignKey("DistrictId");
+                        .HasForeignKey("District")
+                        .OnDelete(DeleteBehavior.Cascade);
 
                     b.HasOne("API.Models.Employee", "RelationManager")
                         .WithMany()
-                        .HasForeignKey("RelationManagerNIK");
+                        .HasForeignKey("Relation_Manager");
                 });
 
             modelBuilder.Entity("API.Models.District", b =>

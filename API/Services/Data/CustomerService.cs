@@ -1,5 +1,7 @@
 ﻿using API.Models;
 using API.Repositories.Data;
+using API.ViewModels;
+using Microsoft.AspNetCore.Mvc;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -14,6 +16,15 @@ namespace API.Services.Data
         public CustomerService(CustomerRepository customerRepository) : base(customerRepository)
         {
             _customerRepository = customerRepository;
+        }
+        public IEnumerable<CustomerVM> GetCustomer()
+        {
+            return _customerRepository.GetCustomer();
+        }
+
+        public async Task<ActionResult<Customer>> PutCustomer(string Id)
+        {
+            return await _customerRepository.Get(Id);
         }
     }
 }
