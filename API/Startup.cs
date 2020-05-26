@@ -41,10 +41,12 @@ namespace API
             services.AddScoped<RoomRepository>();
             services.AddScoped<EmployeeRepository>();
             services.AddScoped<CustomerRepository>();
+            services.AddScoped<DistrictRepository>();
             
             services.AddScoped<RoomService>();
             services.AddScoped<EmployeeService>();
             services.AddScoped<CustomerService>();
+            services.AddScoped<DistrictService>();
 
             string securityKey = "this_is_security_key_longest_i_have_ever_been_written_before";
             var symmetricSecurityKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(securityKey));

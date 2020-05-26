@@ -158,7 +158,7 @@
     <script>
         var table = null;
         $(document).ready(function () {
-            debugger;
+            //debugger;
             table = $('#table').DataTable({
                 "serverside": true,
                 "filter": true,
@@ -236,6 +236,72 @@
                 });
             }).draw();
         });
+
+        var Districts = []
+        function LoadDistrict(element) {
+            //debugger;
+            if (Districts.length == 0) {
+                $.ajax({
+                    type: "Get",
+                    url: "/Customers/LoadDistrict",
+                    success: function (data) {
+                        //debugger;
+                        //Departments = data.data;
+                        Districts = data;
+                        renderDistrict(element);
+                    }
+                })
+            }
+            else {
+                renderDistrict(element);
+            }
+        }
+
+        function renderDistrict(element) {
+            //debugger;
+            var $ele = $(element);
+            $ele.empty();
+            $ele.append($('<option/>').val('0').text('Select District').hide());
+            $.each(Districts, function (i, val) {
+                //$.each(Departments.data, function (i, val) {
+                //debugger;
+                $ele.append($('<option/>').val(val.id).text(val.name));
+            })
+        }
+        LoadDistrict($('#District'));
+
+        var Employees = []
+        function LoadEmployee(element) {
+            debugger;
+            if (Employees.length == 0) {
+                $.ajax({
+                    type: "Get",
+                    url: "/Customers/LoadRM",
+                    success: function (data) {
+                        //debugger;
+                        //Departments = data.data;
+                        Employees = data;
+                        renderEmployee(element);
+                    }
+                })
+            }
+            else {
+                renderEmployee(element);
+            }
+        }
+
+        function renderEmployee(element) {
+            debugger;
+            var $ele = $(element);
+            $ele.empty();
+            $ele.append($('<option/>').val('0').text('Select Relation Manager').hide());
+            $.each(Employees, function (i, val) {
+                //$.each(Departments.data, function (i, val) {
+                //debugger;
+                $ele.append($('<option/>').val(val.id).text(val.fullname));
+            })
+        }
+        LoadEmployee($('#Relation_Manager'));
     </script>
 }
 
