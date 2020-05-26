@@ -22,9 +22,9 @@ namespace API.Services.Data
             return _customerRepository.GetCustomer();
         }
 
-        public async Task<ActionResult<Customer>> PutCustomer(string Id)
-        {
-            return await _customerRepository.Get(Id);
-        }
+        //public async Task<ActionResult<Customer>> PutCustomer(string Id)
+        //{
+        //    return await _customerRepository.Get(Id);
+        //}
     }
 }
