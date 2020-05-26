@@ -9,7 +9,7 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace API.Migrations
 {
     [DbContext(typeof(MyContext))]
-    [Migration("20200503093753_initial")]
+    [Migration("20200526042144_initial")]
     partial class initial
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -127,6 +127,30 @@ namespace API.Migrations
                     b.ToTable("tb_m_class");
                 });
 
+            modelBuilder.Entity("API.Models.Customer", b =>
+                {
+                    b.Property<string>("Id")
+                        .ValueGeneratedOnAdd();
+
+                    b.Property<string>("Address");
+
+                    b.Property<int>("District");
+
+                    b.Property<string>("Name");
+
+                    b.Property<string>("Phone");
+
+                    b.Property<string>("Relation_Manager");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("District");
+
+                    b.HasIndex("Relation_Manager");
+
+                    b.ToTable("tb_m_customer");
+                });
+
             modelBuilder.Entity("API.Models.District", b =>
                 {
                     b.Property<int>("Id")
@@ -145,7 +169,7 @@ namespace API.Migrations
 
             modelBuilder.Entity("API.Models.Employee", b =>
                 {
-                    b.Property<string>("Id");
+                    b.Property<string>("NIK");
 
                     b.Property<DateTimeOffset>("Create_Date");
 
@@ -161,15 +185,13 @@ namespace API.Migrations
 
                     b.Property<string>("Last_Name");
 
-                    b.Property<string>("NIK");
-
                     b.Property<string>("Phone");
 
                     b.Property<DateTimeOffset>("Update_Date");
 
                     b.Property<string>("Updated_By");
 
-                    b.HasKey("Id");
+                    b.HasKey("NIK");
 
                     b.HasIndex("Hiring_Location");
 
@@ -293,7 +315,7 @@ namespace API.Migrations
 
                     b.HasKey("Id");
 
-                    b.ToTable("Users");
+                    b.ToTable("tb_m_account");
                 });
 
             modelBuilder.Entity("API.Models.Asset", b =>
@@ -322,6 +344,18 @@ namespace API.Migrations
                         .HasForeignKey("trainer");
                 });
 
+            modelBuilder.Entity("API.Models.Customer", b =>
+                {
+                    b.HasOne("API.Models.District", "Districtx")
+                        .WithMany()
+                        .HasForeignKey("District")
+                        .OnDelete(DeleteBehavior.Cascade);
+
+                    b.HasOne("API.Models.Employee", "RelationManager")
+                        .WithMany()
+                        .HasForeignKey("Relation_Manager");
+                });
+
             modelBuilder.Entity("API.Models.District", b =>
                 {
                     b.HasOne("API.Models.Province", "Province")
@@ -339,7 +373,7 @@ namespace API.Migrations
 
                     b.HasOne("API.Models.User", "User")
                         .WithOne("Employee")
-                        .HasForeignKey("API.Models.Employee", "Id")
+                        .HasForeignKey("API.Models.Employee", "NIK")
                         .OnDelete(DeleteBehavior.Cascade);
                 });
 
