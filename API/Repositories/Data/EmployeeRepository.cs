@@ -3,6 +3,7 @@ using API.Models;
 using API.ViewModels;
 using Dapper;
 using Microsoft.Extensions.Configuration;
+using MySql.Data.MySqlClient;
 using System;
 using System.Collections.Generic;
 using System.Data.SqlClient;
@@ -22,9 +23,9 @@ namespace API.Repositories.Data
 
         public IEnumerable<EmployeeVM> GetEmployee()
         {
-            using(var connection = new SqlConnection(_configuration.GetConnectionString("Storage")))
+            using (var connection = new MySqlConnection(_configuration.GetConnectionString("Storage")))
             {
-                var result = connection.Query<EmployeeVM>("sp_retrieve_employee").ToList();
+                var result = connection.Query<EmployeeVM>("call sp_retrieve_employee").ToList();
                 return result;
             }
         }
