@@ -1,5 +1,6 @@
 ﻿using API.Models;
 using API.Repositories.Data;
+using API.ViewModels;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -15,9 +16,9 @@ namespace API.Services.Data
         {
             _customerRepository = customerRepository;
         }
-        //public IEnumerable<CustomerVM> GetCustomer()
-        //{
-        //    return _customerRepository.GetCustomer();
-        //}
+        public IEnumerable<CustomerVM> GetCustomer()
+        {
+            return _customerRepository.GetCustomer();
+        }
     }
 }

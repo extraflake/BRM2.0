@@ -21,15 +21,15 @@ namespace API.Controllers
             _customerService = customerService;
         }
 
-        //[HttpGet("GetCustomer")]
-        //public IActionResult GetCustomer()
-        //{
-        //    var get = _customerService.GetCustomer();
-        //    if (!get.Equals(0))
-        //    {
-        //        return Ok(get);
-        //    }
-        //    return BadRequest();
-        //}
+        [HttpGet("GetCustomer")]
+        public IActionResult GetCustomer()
+        {
+            var get = _customerService.GetCustomer();
+            if (!get.Equals(0))
+            {
+                return Ok(get);
+            }
+            return BadRequest();
+        }
     }
 }

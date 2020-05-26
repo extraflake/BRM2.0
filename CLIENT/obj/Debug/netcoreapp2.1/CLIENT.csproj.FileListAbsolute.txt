@@ -100,6 +100,7 @@ D:\Metrodata\BRM2.0\CLIENT\obj\Debug\netcoreapp2.1\CLIENT.TagHelpers.output.cach
 D:\Metrodata\BRM2.0\CLIENT\obj\Debug\netcoreapp2.1\CLIENT.RazorCoreGenerate.cache
 D:\Metrodata\BRM2.0\CLIENT\obj\Debug\netcoreapp2.1\Razor\Areas\Identity\Pages\_ViewStart.cshtml.g.cs
 D:\Metrodata\BRM2.0\CLIENT\obj\Debug\netcoreapp2.1\Razor\Views\Accounts\Index.cshtml.g.cs
+D:\Metrodata\BRM2.0\CLIENT\obj\Debug\netcoreapp2.1\Razor\Views\Customers\Index.cshtml.g.cs
 D:\Metrodata\BRM2.0\CLIENT\obj\Debug\netcoreapp2.1\Razor\Views\Employees\Index.cshtml.g.cs
 D:\Metrodata\BRM2.0\CLIENT\obj\Debug\netcoreapp2.1\Razor\Views\Home\About.cshtml.g.cs
 D:\Metrodata\BRM2.0\CLIENT\obj\Debug\netcoreapp2.1\Razor\Views\Home\Contact.cshtml.g.cs
