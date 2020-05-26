@@ -4,6 +4,7 @@ using System.Linq;
 using System.Net.Http;
 using System.Threading.Tasks;
 using API.Models;
+using API.ViewModels;
 using CLIENT.Bases;
 using Microsoft.AspNetCore.Mvc;
 
@@ -19,23 +20,23 @@ namespace CLIENT.Controllers
 
         public JsonResult LoadCustomer()
         {
-            IEnumerable<Customer> customer = null;
+            IEnumerable<CustomerVM> customer = null;
             var client = new HttpClient
             {
                 BaseAddress = new Uri(baseLink.development)
             };
-            var responseTask = client.GetAsync("Customers");
+            var responseTask = client.GetAsync("Customers/GetCustomer");
             responseTask.Wait();
             var result = responseTask.Result;
             if (result.IsSuccessStatusCode)
             {
-                var readTask = result.Content.ReadAsAsync<IList<Customer>>();
+                var readTask = result.Content.ReadAsAsync<IList<CustomerVM>>();
                 readTask.Wait();
                 customer = readTask.Result;
             }
             else
             {
-                customer = Enumerable.Empty<Customer>();
+                customer = Enumerable.Empty<CustomerVM>();
                 ModelState.AddModelError(string.Empty, "Server error try after some time.");
             }
             return Json(customer);

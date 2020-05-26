@@ -36,7 +36,13 @@
                     Relation Manager
                 </th>
                 <th style="background-color:skyblue;color:white;text-align:center">
+                    Employee Id
+                </th>
+                <th style="background-color:skyblue;color:white;text-align:center">
                     District
+                </th>
+                <th style="background-color:skyblue;color:white;text-align:center">
+                    Relation Manager Phone Number
                 </th>
                 <th style="background-color:skyblue;color:white;text-align:center" class="no-sort">
                     Action
@@ -192,6 +198,14 @@
                         },
                         {
                             "targets": [6],
+                            "className": "text-center"
+                        },
+                        {
+                            "targets": [7],
+                            "className": "text-center"
+                        },
+                        {
+                            "targets": [8],
                             "searchable": false,
                             "orderable": false
                         }],
@@ -202,11 +216,13 @@
                             return meta.row + meta.settings._iDisplayStart + 1 + "."
                         }
                     },
-                    { "data": "name", "autoWidth": true },
-                    { "data": "address", "autoWidth": true },
-                    { "data": "phone", "autoWidth": true },
-                    { "data": "relation_Manager", "autoWidth": true },
-                    { "data": "district", "autoWidth": true },
+                    { "data": "name", "name": "name", "autoWidth": true },
+                    { "data": "address", "name": "address", "autoWidth": true },
+                    { "data": "phone", "name": "phone", "autoWidth": true },
+                    { "data": "relation_manager", "name": "relation_manager", "autoWidth": true },
+                    { "data": "employee_id", "name": "employee_id", "autoWidth": true },
+                    { "data": "district", "name": "district", "autoWidth": true },
+                    { "data": "phone_relation_manager", "name": "phone_relation_manager", "autoWidth": true },
                     {
                         "render": function (data, type, full, meta) {
                             return '<a class="btn btn-info" href="#" onclick="GetById(' + full.id + ')">Edit</a> <a class="btn btn-danger" href="#" onclick="Delete(' + full.id + ')">Delete</a>';
