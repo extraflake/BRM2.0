@@ -60,7 +60,7 @@
             </div>
             <div class="modal-body">
                 <div class="form-group">
-                @*<div class="form-group" hidden="hidden">*@
+                    @*<div class="form-group" hidden="hidden">*@
                     <label for="Id">Id</label>
                     <input type="text" class="form-control" id="Id" placeholder="Id" />
                 </div>
@@ -79,6 +79,7 @@
                     </select>
                 </div>
                 <div class="form-group">
+                    <label for="District">District</label>
                     <select id="District" class="pc form-control district">
                         <option>Select District</option>
                     </select>
@@ -205,7 +206,7 @@
                             "searchable": false,
                             "orderable": false
                         }],
-                "order": [[ 1, 'asc' ]],
+                "order": [[1, 'asc']],
                 "columns": [
                     {
                         render: function (data, type, row, meta) {
@@ -221,7 +222,7 @@
                     { "data": "phone_relation_manager", "name": "phone_relation_manager", "autoWidth": true },
                     {
                         "render": function (data, type, full, meta) {
-                            return '<a class="btn btn-info" href="#" onclick="GetById(' + full.id + ')">Edit</a> <a class="btn btn-danger" href="#" onclick="Delete(' + full.id + ')">Delete</a>';
+                            return " <td><button type='button' class='btn btn-info' onclick=GetById('" + full.id + "');>Edit</button> <button type='button' class='btn btn-danger' onclick=Delete('" + full.id + "');>Delete</button ></td >";
                         }
                     }
                 ]
@@ -414,6 +415,35 @@
                     }
                 })
             }
+        }
+
+        function Update() {
+            debugger;
+            var Customer = new Object();
+            Customer.id = $('#Id').val();
+            Customer.name = $('#Name').val();
+            Customer.address = $('#Address').val();
+            Customer.phone = $('#Phone').val();
+            Customer.relation_manager = $('#Relation_Manager').val();
+            Customer.district = $('#District').val();
+            $.ajax({
+                type: "POST",
+                url: '/Customers/InsertOrUpdate/',
+                data: Customer
+            }).then((result) => {
+                debugger;
+                if (result.statusCode == 200) {
+                    Swal.fire({
+                        position: 'center',
+                        type: 'success',
+                        title: 'Customer Updated Successfully'
+                    });
+                    table.ajax.reload();
+                } else {
+                    Swal.fire('Error', 'Failed to Update', 'error');
+                    ClearScreen();
+                }
+            })
         }
 
         function Delete(id) {

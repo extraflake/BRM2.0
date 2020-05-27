@@ -95,7 +95,7 @@ namespace CLIENT.Controllers
 
         public JsonResult GetById(string Id)
         {
-            Customer customer = null;
+            CustomerVM customer = null;
             var client = new HttpClient
             {
                 BaseAddress = new Uri(baseLink.development)
@@ -106,7 +106,7 @@ namespace CLIENT.Controllers
             if (result.IsSuccessStatusCode)
             {
                 var json = JsonConvert.DeserializeObject(result.Content.ReadAsStringAsync().Result).ToString();
-                customer = JsonConvert.DeserializeObject<Customer>(json);
+                customer = JsonConvert.DeserializeObject<CustomerVM>(json);
             }
             else
             {
