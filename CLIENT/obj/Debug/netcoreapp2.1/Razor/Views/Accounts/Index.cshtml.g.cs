@@ -86,7 +86,7 @@ using CLIENT.Models;
                 ");
             EndContext();
             BeginContext(964, 73, false);
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("img", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagOnly, "09644bab8b0b41e995e8ddc9693702dc", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("img", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagOnly, "91206d5ac1dd4b10afb3b6882ad7a4a5", async() => {
             }
             );
             __Microsoft_AspNetCore_Mvc_Razor_TagHelpers_UrlResolutionTagHelper = CreateTagHelper<global::Microsoft.AspNetCore.Mvc.Razor.TagHelpers.UrlResolutionTagHelper>();
@@ -150,7 +150,7 @@ using CLIENT.Models;
                                     ");
             EndContext();
             BeginContext(3360, 87, false);
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "c082f4955fb0478f89a5cdae5029664f", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "a396cef86b194efcaf4512e3b02584ee", async() => {
                 BeginContext(3427, 16, true);
                 WriteLiteral("Forgot Password?");
                 EndContext();

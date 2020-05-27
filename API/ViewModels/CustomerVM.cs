@@ -13,6 +13,7 @@ namespace API.ViewModels
         public string Phone { get; set; }
         public string relation_manager { get; set; }
         public string employee_id { get; set; }
+        public int district_id { get; set; }
         public string district { get; set; }
         public string phone_relation_manager { get; set; }
     }
