@@ -14,6 +14,12 @@
             <div class="upload-btn-wrapper">
                 <button type="button" id="Create" class="btn right fa fa-plus-circle btn-add" data-toggle="modal" data-target="#myModal" onclick="ClearScreen();"></button>
             </div>
+            <div class="upload-btn-wrapper">
+                <button type="button" id="ExportExcel" class="btn-dwn fa fa-file-excel-o" data-placement="down" title="Export To Excel"></button>
+            </div>
+            <div class="upload-btn-wrapper">
+                <button type="button" id="ExportPdf" class="btn-add fa fa-file-pdf-o" data-placement="down" title="Export To PDF"></button>
+            </div>
         </div>
     </div>
     <br />
@@ -93,8 +99,8 @@
                 </div>
             </div>
             <div class="modal-footer">
-                <button type="button" class="btn btn-primary" style="background-color:skyblue;border-color:skyblue" id="Save" onclick="Save();">Add</button>
-                <button type="button" class="btn btn-primary" style="background-color:skyblue;border-color:skyblue" id="Update" onclick="Update();">Update</button>
+                <button type="button" class="btn btn-primary" style="background-color:skyblue;border-color:skyblue" data-dismiss="modal" id="Save" onclick="Save();">Add</button>
+                <button type="button" class="btn btn-primary" style="background-color:skyblue;border-color:skyblue" data-dismiss="modal" id="Update" onclick="Update();">Update</button>
                 <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
             </div>
         </div>
@@ -222,7 +228,7 @@
                     { "data": "phone_relation_manager", "name": "phone_relation_manager", "autoWidth": true },
                     {
                         "render": function (data, type, full, meta) {
-                            return " <td><button type='button' class='btn btn-info' onclick=GetById('" + full.id + "');>Edit</button> <button type='button' class='btn btn-danger' onclick=Delete('" + full.id + "');>Delete</button ></td >";
+                            return " <td><button type='button' class='btn btn-info' data-placement='left' data-toggle='tooltip' data-animation='false' title='Edit' onclick=GetById('" + full.id + "');><i class='mdi mdi-pencil'></i></button> <button type='button' class='btn btn-danger' data-placement='right' data-toggle='tooltip' data-animation='false' title='Delete' onclick=Delete('" + full.id + "');><i class='mdi mdi-eraser'></i></button ></td >";
                         }
                     }
                 ]
@@ -309,6 +315,7 @@
 
         function ClearScreen() {
             $('#Id').val('');
+            $('#Id').prop('disabled', false);
             $('#Name').val('');
             $('#Address').val('');
             $('#Phone').val('');

@@ -130,7 +130,7 @@ namespace CLIENT.Controllers
                 var result = client.PostAsync("Customers", byteContent).Result;
                 return Json(result);
             }
-            return Json("");
+            return Json(400);
         }
 
         public JsonResult Update(Customer customer, string Id)
@@ -148,7 +148,7 @@ namespace CLIENT.Controllers
                 var result = client.PutAsync("Customers/" + customer.Id, byteContent).Result;
                 return Json(result);
             }
-            return Json("");
+            return Json(400);
         }
 
         public JsonResult Delete(string Id)
