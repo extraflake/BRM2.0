@@ -136,7 +136,7 @@ namespace API.Migrations
 
                     b.Property<string>("Created_By");
 
-                    b.Property<int>("DistrictId");
+                    b.Property<int>("District_Id");
 
                     b.Property<string>("Name");
 
@@ -150,7 +150,7 @@ namespace API.Migrations
 
                     b.HasKey("Id");
 
-                    b.HasIndex("DistrictId");
+                    b.HasIndex("District_Id");
 
                     b.HasIndex("RelationManager");
 
@@ -354,7 +354,7 @@ namespace API.Migrations
                 {
                     b.HasOne("API.Models.District", "District")
                         .WithMany("Customers")
-                        .HasForeignKey("DistrictId")
+                        .HasForeignKey("District_Id")
                         .OnDelete(DeleteBehavior.Cascade);
 
                     b.HasOne("API.Models.Employee", "Employee")

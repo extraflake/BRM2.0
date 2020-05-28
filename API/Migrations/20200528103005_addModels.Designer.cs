@@ -9,8 +9,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace API.Migrations
 {
     [DbContext(typeof(MyContext))]
-    [Migration("20200525132834_InitModels")]
-    partial class InitModels
+    [Migration("20200528103005_addModels")]
+    partial class addModels
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -138,7 +138,7 @@ namespace API.Migrations
 
                     b.Property<string>("Created_By");
 
-                    b.Property<string>("District");
+                    b.Property<int>("District_Id");
 
                     b.Property<string>("Name");
 
@@ -151,6 +151,10 @@ namespace API.Migrations
                     b.Property<string>("Updated_By");
 
                     b.HasKey("Id");
+
+                    b.HasIndex("District_Id");
+
+                    b.HasIndex("RelationManager");
 
                     b.ToTable("tb_m_customer");
                 });
@@ -346,6 +350,18 @@ namespace API.Migrations
                     b.HasOne("API.Models.Employee", "Employee")
                         .WithMany()
                         .HasForeignKey("trainer");
+                });
+
+            modelBuilder.Entity("API.Models.Customer", b =>
+                {
+                    b.HasOne("API.Models.District", "District")
+                        .WithMany("Customers")
+                        .HasForeignKey("District_Id")
+                        .OnDelete(DeleteBehavior.Cascade);
+
+                    b.HasOne("API.Models.Employee", "Employee")
+                        .WithMany("Customers")
+                        .HasForeignKey("RelationManager");
                 });
 
             modelBuilder.Entity("API.Models.District", b =>

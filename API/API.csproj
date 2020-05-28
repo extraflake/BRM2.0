@@ -5,6 +5,11 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <Compile Remove="Migrations\20200528102857_addModels.cs" />
+    <Compile Remove="Migrations\20200528102857_addModels.Designer.cs" />
+  </ItemGroup>
+
+  <ItemGroup>
     <Content Remove="libman.json" />
   </ItemGroup>
 

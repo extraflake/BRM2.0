@@ -4,7 +4,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 
 namespace API.Migrations
 {
-    public partial class InitModels : Migration
+    public partial class addModels : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
@@ -53,26 +53,6 @@ namespace API.Migrations
                 constraints: table =>
                 {
                     table.PrimaryKey("PK_tb_m_class", x => x.Id);
-                });
-
-            migrationBuilder.CreateTable(
-                name: "tb_m_customer",
-                columns: table => new
-                {
-                    Create_Date = table.Column<DateTimeOffset>(nullable: false),
-                    Update_Date = table.Column<DateTimeOffset>(nullable: false),
-                    Created_By = table.Column<string>(nullable: true),
-                    Updated_By = table.Column<string>(nullable: true),
-                    Id = table.Column<string>(nullable: false),
-                    Name = table.Column<string>(nullable: true),
-                    Address = table.Column<string>(nullable: true),
-                    Phone = table.Column<string>(nullable: true),
-                    RelationManager = table.Column<string>(nullable: true),
-                    District = table.Column<string>(nullable: true)
-                },
-                constraints: table =>
-                {
-                    table.PrimaryKey("PK_tb_m_customer", x => x.Id);
                 });
 
             migrationBuilder.CreateTable(
@@ -225,6 +205,38 @@ namespace API.Migrations
                 });
 
             migrationBuilder.CreateTable(
+                name: "tb_m_customer",
+                columns: table => new
+                {
+                    Create_Date = table.Column<DateTimeOffset>(nullable: false),
+                    Update_Date = table.Column<DateTimeOffset>(nullable: false),
+                    Created_By = table.Column<string>(nullable: true),
+                    Updated_By = table.Column<string>(nullable: true),
+                    Id = table.Column<string>(nullable: false),
+                    Name = table.Column<string>(nullable: true),
+                    Address = table.Column<string>(nullable: true),
+                    Phone = table.Column<string>(nullable: true),
+                    RelationManager = table.Column<string>(nullable: true),
+                    District_Id = table.Column<int>(nullable: false)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_tb_m_customer", x => x.Id);
+                    table.ForeignKey(
+                        name: "FK_tb_m_customer_tb_m_district_District_Id",
+                        column: x => x.District_Id,
+                        principalTable: "tb_m_district",
+                        principalColumn: "Id",
+                        onDelete: ReferentialAction.Cascade);
+                    table.ForeignKey(
+                        name: "FK_tb_m_customer_tb_m_employee_RelationManager",
+                        column: x => x.RelationManager,
+                        principalTable: "tb_m_employee",
+                        principalColumn: "NIK",
+                        onDelete: ReferentialAction.Restrict);
+                });
+
+            migrationBuilder.CreateTable(
                 name: "tb_tr_employee_role",
                 columns: table => new
                 {
@@ -328,6 +340,16 @@ namespace API.Migrations
                 name: "IX_tb_m_batch_class_trainer",
                 table: "tb_m_batch_class",
                 column: "trainer");
+
+            migrationBuilder.CreateIndex(
+                name: "IX_tb_m_customer_District_Id",
+                table: "tb_m_customer",
+                column: "District_Id");
+
+            migrationBuilder.CreateIndex(
+                name: "IX_tb_m_customer_RelationManager",
+                table: "tb_m_customer",
+                column: "RelationManager");
 
             migrationBuilder.CreateIndex(
                 name: "IX_tb_m_district_Province_Id",

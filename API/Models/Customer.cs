@@ -22,7 +22,7 @@ namespace API.Models
         public virtual Employee Employee { get; set; }
 
         [ForeignKey("District")]
-        public int DistrictId { get; set; }
+        public int District_Id { get; set; }
         public virtual District District { get; set; }
     }
 }
