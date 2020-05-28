@@ -1,6 +1,9 @@
 ﻿using System;
 using System.Collections.Generic;
+<<<<<<< HEAD
 using System.Globalization;
+=======
+>>>>>>> 0847ca7bfd7524b3b1abd0e83ea477a95eccefb0
 using System.Linq;
 using System.Threading.Tasks;
 using API.Bases;
@@ -32,6 +35,7 @@ namespace API.Controllers
             }
             return BadRequest();
         }
+<<<<<<< HEAD
 
         //[HttpPut("{id}")]
         //public async Task<ActionResult<Customer>> EditCustomer(string Id, Employee employee)
@@ -48,5 +52,7 @@ namespace API.Controllers
         //    }
         //    return BadRequest("Failed to Updated Data");
         //}
+=======
+>>>>>>> 0847ca7bfd7524b3b1abd0e83ea477a95eccefb0
     }
 }

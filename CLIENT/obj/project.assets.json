@@ -4677,11 +4677,7 @@
         "framework": ".NETCoreApp,Version=v2.1",
         "dependencies": {
           "Dapper": "2.0.35",
-<<<<<<< Updated upstream
           "Microsoft.VisualStudio.Web.CodeGeneration.Design": "2.1.10",
-=======
-          "Microsoft.VisualStudio.Web.CodeGeneration.Design": "2.1.9",
->>>>>>> Stashed changes
           "Pomelo.EntityFrameworkCore.MySql": "2.1.1"
         },
         "compile": {

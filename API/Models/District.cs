@@ -14,8 +14,8 @@ namespace API.Models
         public int Id { get; set; }
         public string Name { get; set; }
 
-        [ForeignKey("Province")]
-        public int Province_Id { get; set; }
-        public virtual Province Province { get; set; }
+        [ForeignKey("Province_Id")]
+        public int Province { get; set; }
+        public virtual Province Province_Id { get; set; }
     }
 }
