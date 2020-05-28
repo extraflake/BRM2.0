@@ -1,6 +1,14 @@
 {
   "version": 2,
+<<<<<<< HEAD
+<<<<<<< Updated upstream
   "dgSpecHash": "sQNMpu+dg9mg4sDqJAN6ZahDhg0gxsnB+JTHWPUc8XYmCX28E3+eZykdkzkelxABBolGAKErviGOgAOPfkLVyQ==",
+=======
+  "dgSpecHash": "F0qd9ThX5H0YHZhn/5dhW7RIRE0eyq0yndVgn6NGwuUpBAR6zHNNLEonRJ4ZTBHUrq5uW9cJfWb6ZIlzFOlH7w==",
+>>>>>>> Stashed changes
+=======
+  "dgSpecHash": "sQNMpu+dg9mg4sDqJAN6ZahDhg0gxsnB+JTHWPUc8XYmCX28E3+eZykdkzkelxABBolGAKErviGOgAOPfkLVyQ==",
+>>>>>>> 0847ca7bfd7524b3b1abd0e83ea477a95eccefb0
   "success": true,
   "projectFilePath": "D:\\Metrodata\\BRM2.0\\CLIENT\\CLIENT.csproj",
   "expectedPackageFiles": [
@@ -172,6 +180,10 @@
     "C:\\Users\\muham\\.nuget\\packages\\microsoft.netcore.dotnethostresolver\\2.1.0\\microsoft.netcore.dotnethostresolver.2.1.0.nupkg.sha512",
     "C:\\Users\\muham\\.nuget\\packages\\microsoft.netcore.platforms\\2.1.0\\microsoft.netcore.platforms.2.1.0.nupkg.sha512",
     "C:\\Users\\muham\\.nuget\\packages\\microsoft.netcore.targets\\2.1.0\\microsoft.netcore.targets.2.1.0.nupkg.sha512",
+<<<<<<< HEAD
+<<<<<<< Updated upstream
+=======
+>>>>>>> 0847ca7bfd7524b3b1abd0e83ea477a95eccefb0
     "C:\\Users\\muham\\.nuget\\packages\\microsoft.visualstudio.web.codegeneration\\2.1.10\\microsoft.visualstudio.web.codegeneration.2.1.10.nupkg.sha512",
     "C:\\Users\\muham\\.nuget\\packages\\microsoft.visualstudio.web.codegeneration.contracts\\2.1.10\\microsoft.visualstudio.web.codegeneration.contracts.2.1.10.nupkg.sha512",
     "C:\\Users\\muham\\.nuget\\packages\\microsoft.visualstudio.web.codegeneration.core\\2.1.10\\microsoft.visualstudio.web.codegeneration.core.2.1.10.nupkg.sha512",
@@ -180,6 +192,19 @@
     "C:\\Users\\muham\\.nuget\\packages\\microsoft.visualstudio.web.codegeneration.templating\\2.1.10\\microsoft.visualstudio.web.codegeneration.templating.2.1.10.nupkg.sha512",
     "C:\\Users\\muham\\.nuget\\packages\\microsoft.visualstudio.web.codegeneration.utils\\2.1.10\\microsoft.visualstudio.web.codegeneration.utils.2.1.10.nupkg.sha512",
     "C:\\Users\\muham\\.nuget\\packages\\microsoft.visualstudio.web.codegenerators.mvc\\2.1.10\\microsoft.visualstudio.web.codegenerators.mvc.2.1.10.nupkg.sha512",
+<<<<<<< HEAD
+=======
+    "C:\\Users\\muham\\.nuget\\packages\\microsoft.visualstudio.web.codegeneration\\2.1.9\\microsoft.visualstudio.web.codegeneration.2.1.9.nupkg.sha512",
+    "C:\\Users\\muham\\.nuget\\packages\\microsoft.visualstudio.web.codegeneration.contracts\\2.1.9\\microsoft.visualstudio.web.codegeneration.contracts.2.1.9.nupkg.sha512",
+    "C:\\Users\\muham\\.nuget\\packages\\microsoft.visualstudio.web.codegeneration.core\\2.1.9\\microsoft.visualstudio.web.codegeneration.core.2.1.9.nupkg.sha512",
+    "C:\\Users\\muham\\.nuget\\packages\\microsoft.visualstudio.web.codegeneration.design\\2.1.9\\microsoft.visualstudio.web.codegeneration.design.2.1.9.nupkg.sha512",
+    "C:\\Users\\muham\\.nuget\\packages\\microsoft.visualstudio.web.codegeneration.entityframeworkcore\\2.1.9\\microsoft.visualstudio.web.codegeneration.entityframeworkcore.2.1.9.nupkg.sha512",
+    "C:\\Users\\muham\\.nuget\\packages\\microsoft.visualstudio.web.codegeneration.templating\\2.1.9\\microsoft.visualstudio.web.codegeneration.templating.2.1.9.nupkg.sha512",
+    "C:\\Users\\muham\\.nuget\\packages\\microsoft.visualstudio.web.codegeneration.utils\\2.1.9\\microsoft.visualstudio.web.codegeneration.utils.2.1.9.nupkg.sha512",
+    "C:\\Users\\muham\\.nuget\\packages\\microsoft.visualstudio.web.codegenerators.mvc\\2.1.9\\microsoft.visualstudio.web.codegenerators.mvc.2.1.9.nupkg.sha512",
+>>>>>>> Stashed changes
+=======
+>>>>>>> 0847ca7bfd7524b3b1abd0e83ea477a95eccefb0
     "C:\\Users\\muham\\.nuget\\packages\\microsoft.win32.registry\\4.5.0\\microsoft.win32.registry.4.5.0.nupkg.sha512",
     "C:\\Users\\muham\\.nuget\\packages\\mysqlconnector\\0.42.1\\mysqlconnector.0.42.1.nupkg.sha512",
     "C:\\Users\\muham\\.nuget\\packages\\netstandard.library\\2.0.3\\netstandard.library.2.0.3.nupkg.sha512",

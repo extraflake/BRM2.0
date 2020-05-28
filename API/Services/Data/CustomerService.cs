@@ -1,6 +1,10 @@
 ﻿using API.Models;
 using API.Repositories.Data;
 using API.ViewModels;
+<<<<<<< HEAD
+using Microsoft.AspNetCore.Mvc;
+=======
+>>>>>>> 0847ca7bfd7524b3b1abd0e83ea477a95eccefb0
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -20,5 +24,13 @@ namespace API.Services.Data
         {
             return _customerRepository.GetCustomer();
         }
+<<<<<<< HEAD
+
+        //public async Task<ActionResult<Customer>> PutCustomer(string Id)
+        //{
+        //    return await _customerRepository.Get(Id);
+        //}
+=======
+>>>>>>> 0847ca7bfd7524b3b1abd0e83ea477a95eccefb0
     }
 }
