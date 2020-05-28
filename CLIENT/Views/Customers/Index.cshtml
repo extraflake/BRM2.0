@@ -74,13 +74,13 @@
                 </div>
                 <div class="form-group">
                     <label for="Relation_Manager">Relation Manager</label>
-                    <select id="Relation_Manager" class="pc form-control">
+                    <select id="Relation_Manager" class="pc form-control" name="Relation_Manager">
                         <option>Select Relation Manager</option>
                     </select>
                 </div>
                 <div class="form-group">
                     <label for="District">District</label>
-                    <select id="District" class="pc form-control district">
+                    <select id="District" class="pc form-control district" name="District">
                         <option>Select District</option>
                     </select>
                 </div>
@@ -300,6 +300,13 @@
         }
         LoadEmployee($('#Relation_Manager'));
 
+        function isNumberKey(evt) {
+            var charCode = (evt.which) ? evt.which : evt.keyCode;
+            if (charCode > 31 && (charCode < 48 || charCode > 57))
+                return false;
+            return true;
+        }
+
         function ClearScreen() {
             $('#Id').val('');
             $('#Name').val('');
@@ -320,6 +327,7 @@
                 debugger;
                 if (result) {
                     $('#Id').val(result.id);
+                    $('#Id').prop('disabled', true);
                     $('#Name').val(result.name);
                     $('#Address').val(result.address);
                     $('#Phone').val(result.phone);
@@ -432,7 +440,7 @@
                 data: Customer
             }).then((result) => {
                 debugger;
-                if (result.statusCode == 200) {
+                if (result.statusCode == 201 || result.statusCode == 204 || result.statusCode == 200) {
                     Swal.fire({
                         position: 'center',
                         type: 'success',
@@ -477,7 +485,6 @@
                 };
             });
         }
-
     </script>
 }
 
