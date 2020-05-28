@@ -156,11 +156,11 @@ namespace API.Migrations
 
                     b.Property<string>("Name");
 
-                    b.Property<int>("Province_Id");
+                    b.Property<int>("Province");
 
                     b.HasKey("Id");
 
-                    b.HasIndex("Province_Id");
+                    b.HasIndex("Province");
 
                     b.ToTable("tb_m_district");
                 });
@@ -356,9 +356,9 @@ namespace API.Migrations
 
             modelBuilder.Entity("API.Models.District", b =>
                 {
-                    b.HasOne("API.Models.Province", "Province")
+                    b.HasOne("API.Models.Province", "Province_Id")
                         .WithMany()
-                        .HasForeignKey("Province_Id")
+                        .HasForeignKey("Province")
                         .OnDelete(DeleteBehavior.Cascade);
                 });
 

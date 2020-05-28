@@ -4,7 +4,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 
 namespace API.Migrations
 {
-    public partial class initial : Migration
+    public partial class addModelAqira : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
@@ -120,14 +120,14 @@ namespace API.Migrations
                     Id = table.Column<int>(nullable: false)
                         .Annotation("MySql:ValueGenerationStrategy", MySqlValueGenerationStrategy.IdentityColumn),
                     Name = table.Column<string>(nullable: true),
-                    Province_Id = table.Column<int>(nullable: false)
+                    Province = table.Column<int>(nullable: false)
                 },
                 constraints: table =>
                 {
                     table.PrimaryKey("PK_tb_m_district", x => x.Id);
                     table.ForeignKey(
-                        name: "FK_tb_m_district_tb_m_province_Province_Id",
-                        column: x => x.Province_Id,
+                        name: "FK_tb_m_district_tb_m_province_Province",
+                        column: x => x.Province,
                         principalTable: "tb_m_province",
                         principalColumn: "Id",
                         onDelete: ReferentialAction.Cascade);
@@ -348,9 +348,9 @@ namespace API.Migrations
                 column: "Relation_Manager");
 
             migrationBuilder.CreateIndex(
-                name: "IX_tb_m_district_Province_Id",
+                name: "IX_tb_m_district_Province",
                 table: "tb_m_district",
-                column: "Province_Id");
+                column: "Province");
 
             migrationBuilder.CreateIndex(
                 name: "IX_tb_m_employee_Hiring_Location",

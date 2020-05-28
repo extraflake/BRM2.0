@@ -9,12 +9,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace API.Migrations
 {
     [DbContext(typeof(MyContext))]
-<<<<<<< HEAD:API/Migrations/20200525121207_initial.Designer.cs
-    [Migration("20200525121207_initial")]
-=======
-    [Migration("20200526042144_initial")]
->>>>>>> 0847ca7bfd7524b3b1abd0e83ea477a95eccefb0:API/Migrations/20200526042144_initial.Designer.cs
-    partial class initial
+    [Migration("20200528140339_addModelAqira")]
+    partial class addModelAqira
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -162,11 +158,11 @@ namespace API.Migrations
 
                     b.Property<string>("Name");
 
-                    b.Property<int>("Province_Id");
+                    b.Property<int>("Province");
 
                     b.HasKey("Id");
 
-                    b.HasIndex("Province_Id");
+                    b.HasIndex("Province");
 
                     b.ToTable("tb_m_district");
                 });
@@ -362,9 +358,9 @@ namespace API.Migrations
 
             modelBuilder.Entity("API.Models.District", b =>
                 {
-                    b.HasOne("API.Models.Province", "Province")
+                    b.HasOne("API.Models.Province", "Province_Id")
                         .WithMany()
-                        .HasForeignKey("Province_Id")
+                        .HasForeignKey("Province")
                         .OnDelete(DeleteBehavior.Cascade);
                 });
 
