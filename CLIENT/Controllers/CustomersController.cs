@@ -115,7 +115,25 @@ namespace CLIENT.Controllers
             return Json(customer);
         }
 
-        public JsonResult InsertOrUpdate(Customer customer, string Id)
+        public JsonResult Insert(Customer customer)
+        {
+            var client = new HttpClient
+            {
+                BaseAddress = new Uri(baseLink.development)
+            };
+            var myContent = JsonConvert.SerializeObject(customer);
+            var buffer = System.Text.Encoding.UTF8.GetBytes(myContent);
+            var byteContent = new ByteArrayContent(buffer);
+            byteContent.Headers.ContentType = new MediaTypeHeaderValue("application/json");
+            if (customer.Id != null)
+            {
+                var result = client.PostAsync("Customers", byteContent).Result;
+                return Json(result);
+            }
+            return Json("");
+        }
+
+        public JsonResult Update(Customer customer, string Id)
         {
             var client = new HttpClient
             {
@@ -127,16 +145,10 @@ namespace CLIENT.Controllers
             byteContent.Headers.ContentType = new MediaTypeHeaderValue("application/json");
             if (customer.Id == Id)
             {
-                //var result = client.PutAsync("Employees/Update/" + employeeVM.Id, byteContent).Result;
                 var result = client.PutAsync("Customers/" + customer.Id, byteContent).Result;
                 return Json(result);
             }
-            else
-            {
-                //var result = client.PostAsync("Employees/Post", byteContent).Result;
-                var result = client.PostAsync("Customers", byteContent).Result;
-                return Json(result);
-            }
+            return Json("");
         }
 
         public JsonResult Delete(string Id)

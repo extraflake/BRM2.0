@@ -406,7 +406,7 @@
                 Customer.district = $('#District').val();
                 $.ajax({
                     type: 'POST',
-                    url: '/Customers/InsertOrUpdate/',
+                    url: '/Customers/Insert/',
                     data: Customer
                 }).then((result) => {
                     debugger;
@@ -436,7 +436,7 @@
             Customer.district = $('#District').val();
             $.ajax({
                 type: "POST",
-                url: '/Customers/InsertOrUpdate/',
+                url: '/Customers/Update/',
                 data: Customer
             }).then((result) => {
                 debugger;
