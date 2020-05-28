@@ -61,15 +61,7 @@
             },
             "Microsoft.VisualStudio.Web.CodeGeneration.Design": {
               "target": "Package",
-<<<<<<< HEAD
-<<<<<<< Updated upstream
               "version": "[2.1.10, )"
-=======
-              "version": "[2.1.9, )"
->>>>>>> Stashed changes
-=======
-              "version": "[2.1.10, )"
->>>>>>> 0847ca7bfd7524b3b1abd0e83ea477a95eccefb0
             },
             "Pomelo.EntityFrameworkCore.MySql": {
               "target": "Package",
