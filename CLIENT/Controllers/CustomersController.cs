@@ -47,23 +47,23 @@ namespace CLIENT.Controllers
 
         public JsonResult LoadRM()
         {
-            IEnumerable<EmployeeVM> employee = null;
+            IEnumerable<EmployeeRoleVM> employee = null;
             var client = new HttpClient
             {
                 BaseAddress = new Uri(baseLink.development)
             };
-            var responseTask = client.GetAsync("Employees/GetEmployee");
+            var responseTask = client.GetAsync("Employees/GetEmployee/5");
             responseTask.Wait();
             var result = responseTask.Result;
             if (result.IsSuccessStatusCode)
             {
-                var readTask = result.Content.ReadAsAsync<IList<EmployeeVM>>();
+                var readTask = result.Content.ReadAsAsync<IList<EmployeeRoleVM>>();
                 readTask.Wait();
                 employee = readTask.Result;
             }
             else
             {
-                employee = Enumerable.Empty<EmployeeVM>();
+                employee = Enumerable.Empty<EmployeeRoleVM>();
                 ModelState.AddModelError(string.Empty, "Server error try after some time.");
             }
             return Json(employee);

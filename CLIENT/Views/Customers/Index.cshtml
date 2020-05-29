@@ -301,7 +301,7 @@
             $.each(Employees, function (i, val) {
                 //$.each(Departments.data, function (i, val) {
                 //debugger;
-                $ele.append($('<option/>').val(val.id).text(val.fullname));
+                $ele.append($('<option/>').val(val.nik).text(val.name));
             })
         }
         LoadEmployee($('#Relation_Manager'));

@@ -5,6 +5,7 @@ using System.Threading.Tasks;
 using API.Bases;
 using API.Models;
 using API.Services.Data;
+using API.ViewModels;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
@@ -31,6 +32,13 @@ namespace API.Controllers
                 return Ok(get);
             }
             return BadRequest();
+        }
+
+        [HttpGet("GetEmployee/{id}")]
+        public Task<IEnumerable<EmployeeRoleVM>> GetEmployeeRoleVMs(int Id)
+        {
+            var getemployeerole =_employeeService.GetEmployeeRole(Id);
+            return getemployeerole;
         }
     }
 }

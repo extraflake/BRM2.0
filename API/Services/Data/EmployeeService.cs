@@ -21,5 +21,10 @@ namespace API.Services.Data
         {
             return _employeeRepository.GetEmployee();
         }
+
+        public Task<IEnumerable<EmployeeRoleVM>> GetEmployeeRole(int Id)
+        {
+            return _employeeRepository.GetEmployeeRole(Id);
+        }
     }
 }
