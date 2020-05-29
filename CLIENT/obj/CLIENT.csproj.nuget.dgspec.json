@@ -124,10 +124,6 @@
               "target": "Package",
               "version": "[4.0.0, )"
             },
-            "EPPlus.Core": {
-              "target": "Package",
-              "version": "[1.5.4, )"
-            },
             "Microsoft.AspNetCore.App": {
               "suppressParent": "All",
               "target": "Package",
