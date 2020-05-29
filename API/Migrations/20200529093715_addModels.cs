@@ -4,7 +4,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 
 namespace API.Migrations
 {
-    public partial class addModelAqira : Migration
+    public partial class addModels : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {

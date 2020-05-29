@@ -25,7 +25,7 @@ namespace API.Repositories.Data
         {
             using (var connection = new MySqlConnection(_configuration.GetConnectionString("Storage")))
             {
-                var result = connection.Query<EmployeeVM>("call sp_retrieve_employee2").ToList();
+                var result = connection.Query<EmployeeVM>("call sp_retrieve_employee").ToList();
                 return result;
             }
         }

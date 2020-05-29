@@ -23,9 +23,9 @@ namespace API.Repositories.Data
 
         public IEnumerable<CustomerVM> GetCustomer()
         {
-            using (var connection = new SqlConnection(_configuration.GetConnectionString("Storage")))
+            using (var connection = new MySqlConnection(_configuration.GetConnectionString("Storage")))
             {
-                var result = connection.Query<CustomerVM>("sp_retrieve_customer2").ToList();
+                var result = connection.Query<CustomerVM>("call sp_retrieve_customer2").ToList();
 
         //public IEnumerable<CustomerVM> GetCustomer()
         //{
