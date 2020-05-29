@@ -14,12 +14,10 @@
             <div class="upload-btn-wrapper">
                 <button type="button" id="Create" class="btn right fa fa-plus-circle btn-add" data-toggle="modal" data-target="#myModal" onclick="ClearScreen();"></button>
             </div>
-            <div class="upload-btn-wrapper">
-                <button type="button" id="ExportExcel" class="btn-dwn fa fa-file-excel-o" data-placement="down" title="Export To Excel"></button>
-            </div>
-            <div class="upload-btn-wrapper">
-                <button type="button" id="ExportPdf" class="btn-add fa fa-file-pdf-o" data-placement="down" title="Export To PDF"></button>
-            </div>
+            <a class="btn-dwn fa fa-file-excel-o" tabindex="0" aria-controls="example23" asp-controller="Customers" asp-action="exportToExcel" data-placement="down" title="Export To Excel">
+            </a>
+            <a class="btn-add fa fa-file-pdf-o" tabindex="0" aria-controls="example23" asp-controller="Customers" asp-action="exportToPDF" data-placement="down" title="Export To PDF">
+            </a>
         </div>
     </div>
     <br />
