@@ -31,5 +31,6 @@ namespace API.Context
         public DbSet<Participant> Participants { get; set; }
         public DbSet<Room> Rooms { get; set; }        
         public DbSet<Customer> Customers { get; set; }        
+        public DbSet<Interview> Interviews { get; set; }        
     }
 }

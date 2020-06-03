@@ -3,14 +3,16 @@ using System;
 using API.Context;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 namespace API.Migrations
 {
     [DbContext(typeof(MyContext))]
-    partial class MyContextModelSnapshot : ModelSnapshot
+    [Migration("20200603090550_addinterviewmodel")]
+    partial class addinterviewmodel
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -216,32 +218,6 @@ namespace API.Migrations
                     b.ToTable("tb_tr_employee_role");
                 });
 
-            modelBuilder.Entity("API.Models.Interview", b =>
-                {
-                    b.Property<int>("Id")
-                        .ValueGeneratedOnAdd();
-
-                    b.Property<string>("Customer");
-
-                    b.Property<string>("Department");
-
-                    b.Property<string>("Employee");
-
-                    b.Property<string>("Note");
-
-                    b.Property<string>("PIC");
-
-                    b.Property<DateTimeOffset>("interview_datetime");
-
-                    b.HasKey("Id");
-
-                    b.HasIndex("Customer");
-
-                    b.HasIndex("Employee");
-
-                    b.ToTable("tb_tr_interview_history");
-                });
-
             modelBuilder.Entity("API.Models.Participant", b =>
                 {
                     b.Property<string>("Id")
@@ -411,17 +387,6 @@ namespace API.Migrations
                         .WithMany()
                         .HasForeignKey("Role_Id")
                         .OnDelete(DeleteBehavior.Cascade);
-                });
-
-            modelBuilder.Entity("API.Models.Interview", b =>
-                {
-                    b.HasOne("API.Models.Customer", "CustomerID")
-                        .WithMany()
-                        .HasForeignKey("Customer");
-
-                    b.HasOne("API.Models.Employee", "EmployeeID")
-                        .WithMany()
-                        .HasForeignKey("Employee");
                 });
 
             modelBuilder.Entity("API.Models.Participant", b =>
