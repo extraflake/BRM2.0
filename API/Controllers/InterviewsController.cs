@@ -44,6 +44,13 @@ namespace API.Controllers
             return Ok(get);
         }
 
+        [HttpPut("PutById/{id}")]
+        public async Task<ActionResult> Put(int id, Interview interview)
+        {
+            await _interviewService.Put(interview);
+            return NoContent();
+        }
+
         [HttpDelete("DeleteById/{id}")]
         public async Task<ActionResult<int>> Delete(int id)
         {
