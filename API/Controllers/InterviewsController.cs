@@ -5,6 +5,7 @@ using System.Threading.Tasks;
 using API.Bases;
 using API.Models;
 using API.Services.Data;
+using API.ViewModels;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 
@@ -30,6 +31,28 @@ namespace API.Controllers
                 return Ok(get);
             }
             return BadRequest();
+        }
+
+        [HttpGet("GetById/{id}")]
+        public async Task<ActionResult<Interview>> Get(int id)
+        {
+            var get = await _interviewService.GetById(id);
+            if (get == null)
+            {
+                return NotFound();
+            }
+            return Ok(get);
+        }
+
+        [HttpDelete("DeleteById/{id}")]
+        public async Task<ActionResult<int>> Delete(int id)
+        {
+            var delete = await _interviewService.DeleteById(id);
+            if (delete.Equals(0))
+            {
+                return NotFound();
+            }
+            return delete;
         }
     }
 }

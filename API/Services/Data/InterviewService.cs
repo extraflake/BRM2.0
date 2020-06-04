@@ -21,5 +21,15 @@ namespace API.Services.Data
         {
             return _interviewRepository.GetInterview();
         }
+
+        public Task<Interview> GetById(int id)
+        {
+            return _interviewRepository.GetById(id);
+        }
+
+        public Task<int> DeleteById(int id)
+        {
+            return _interviewRepository.DeleteById(id);
+        }
     }
 }

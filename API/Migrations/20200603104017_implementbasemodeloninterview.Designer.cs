@@ -3,14 +3,16 @@ using System;
 using API.Context;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 namespace API.Migrations
 {
     [DbContext(typeof(MyContext))]
-    partial class MyContextModelSnapshot : ModelSnapshot
+    [Migration("20200603104017_implementbasemodeloninterview")]
+    partial class implementbasemodeloninterview
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -22,13 +24,13 @@ namespace API.Migrations
                     b.Property<string>("Id")
                         .ValueGeneratedOnAdd();
 
-                    b.Property<DateTimeOffset>("Create_Datetime");
+                    b.Property<DateTimeOffset>("Create_Date");
 
                     b.Property<string>("Created_By");
 
                     b.Property<string>("Number");
 
-                    b.Property<DateTimeOffset>("Update_Datetime");
+                    b.Property<DateTimeOffset>("Update_Date");
 
                     b.Property<string>("Updated_By");
 
@@ -50,7 +52,7 @@ namespace API.Migrations
                     b.Property<string>("Id")
                         .ValueGeneratedOnAdd();
 
-                    b.Property<DateTimeOffset>("Create_Datetime");
+                    b.Property<DateTimeOffset>("Create_Date");
 
                     b.Property<string>("Created_By");
 
@@ -62,7 +64,7 @@ namespace API.Migrations
 
                     b.Property<string>("Type");
 
-                    b.Property<DateTimeOffset>("Update_Datetime");
+                    b.Property<DateTimeOffset>("Update_Date");
 
                     b.Property<string>("Updated_By");
 
@@ -76,7 +78,7 @@ namespace API.Migrations
                     b.Property<string>("Id")
                         .ValueGeneratedOnAdd();
 
-                    b.Property<DateTimeOffset>("Create_Datetime");
+                    b.Property<DateTimeOffset>("Create_Date");
 
                     b.Property<string>("Created_By");
 
@@ -84,7 +86,7 @@ namespace API.Migrations
 
                     b.Property<int>("Quantity");
 
-                    b.Property<DateTimeOffset>("Update_Datetime");
+                    b.Property<DateTimeOffset>("Update_Date");
 
                     b.Property<string>("Updated_By");
 
@@ -110,13 +112,13 @@ namespace API.Migrations
                     b.Property<string>("Id")
                         .ValueGeneratedOnAdd();
 
-                    b.Property<DateTimeOffset>("Create_Datetime");
+                    b.Property<DateTimeOffset>("Create_Date");
 
                     b.Property<string>("Created_By");
 
                     b.Property<string>("Name");
 
-                    b.Property<DateTimeOffset>("Update_Datetime");
+                    b.Property<DateTimeOffset>("Update_Date");
 
                     b.Property<string>("Updated_By");
 
@@ -169,7 +171,7 @@ namespace API.Migrations
                 {
                     b.Property<string>("NIK");
 
-                    b.Property<DateTimeOffset>("Create_Datetime");
+                    b.Property<DateTimeOffset>("Create_Date");
 
                     b.Property<string>("Created_By");
 
@@ -185,7 +187,7 @@ namespace API.Migrations
 
                     b.Property<string>("Phone");
 
-                    b.Property<DateTimeOffset>("Update_Datetime");
+                    b.Property<DateTimeOffset>("Update_Date");
 
                     b.Property<string>("Updated_By");
 
@@ -221,7 +223,7 @@ namespace API.Migrations
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd();
 
-                    b.Property<DateTimeOffset>("Create_Datetime");
+                    b.Property<DateTimeOffset>("Create_Date");
 
                     b.Property<string>("Created_By");
 
@@ -235,7 +237,7 @@ namespace API.Migrations
 
                     b.Property<string>("PIC");
 
-                    b.Property<DateTimeOffset>("Update_Datetime");
+                    b.Property<DateTimeOffset>("Update_Date");
 
                     b.Property<string>("Updated_By");
 
@@ -255,13 +257,13 @@ namespace API.Migrations
                     b.Property<string>("Id")
                         .ValueGeneratedOnAdd();
 
-                    b.Property<DateTimeOffset>("Create_Datetime");
+                    b.Property<DateTimeOffset>("Create_Date");
 
                     b.Property<string>("Created_By");
 
                     b.Property<string>("Grade");
 
-                    b.Property<DateTimeOffset>("Update_Datetime");
+                    b.Property<DateTimeOffset>("Update_Date");
 
                     b.Property<string>("Updated_By");
 
@@ -303,13 +305,13 @@ namespace API.Migrations
                     b.Property<string>("Id")
                         .ValueGeneratedOnAdd();
 
-                    b.Property<DateTimeOffset>("Create_Datetime");
+                    b.Property<DateTimeOffset>("Create_Date");
 
                     b.Property<string>("Created_By");
 
                     b.Property<string>("Name");
 
-                    b.Property<DateTimeOffset>("Update_Datetime");
+                    b.Property<DateTimeOffset>("Update_Date");
 
                     b.Property<string>("Updated_By");
 
@@ -323,13 +325,13 @@ namespace API.Migrations
                     b.Property<string>("Id")
                         .ValueGeneratedOnAdd();
 
-                    b.Property<DateTimeOffset>("Create_Datetime");
+                    b.Property<DateTimeOffset>("Create_Date");
 
                     b.Property<string>("Created_By");
 
                     b.Property<string>("Name");
 
-                    b.Property<DateTimeOffset>("Update_Datetime");
+                    b.Property<DateTimeOffset>("Update_Date");
 
                     b.Property<string>("Updated_By");
 

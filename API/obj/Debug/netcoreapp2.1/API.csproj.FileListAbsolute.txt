@@ -15,3 +15,4 @@ D:\Metrodata\BRM2.0\API\obj\Debug\netcoreapp2.1\API.RazorTargetAssemblyInfo.cach
 D:\Metrodata\BRM2.0\API\obj\Debug\netcoreapp2.1\API.dll
 D:\Metrodata\BRM2.0\API\obj\Debug\netcoreapp2.1\API.pdb
 D:\Metrodata\BRM2.0\API\obj\Debug\netcoreapp2.1\API.genruntimeconfig.cache
+D:\Metrodata\BRM2.0\API\obj\Debug\netcoreapp2.1\API.csprojAssemblyReference.cache
