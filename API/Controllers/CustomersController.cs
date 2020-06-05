@@ -6,7 +6,6 @@ using System.Threading.Tasks;
 using API.Bases;
 using API.Models;
 using API.Services.Data;
-using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 
 namespace API.Controllers

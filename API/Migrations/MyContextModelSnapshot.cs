@@ -240,6 +240,34 @@ namespace API.Migrations
                     b.ToTable("tb_m_participant");
                 });
 
+            modelBuilder.Entity("API.Models.Placement", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd();
+
+                    b.Property<DateTimeOffset>("Create_Date");
+
+                    b.Property<string>("Customer");
+
+                    b.Property<string>("Department");
+
+                    b.Property<string>("Employee");
+
+                    b.Property<string>("Notes");
+
+                    b.Property<DateTimeOffset>("Start_Date");
+
+                    b.Property<DateTimeOffset>("Update_Date");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("Customer");
+
+                    b.HasIndex("Employee");
+
+                    b.ToTable("tb_tr_placement");
+                });
+
             modelBuilder.Entity("API.Models.Province", b =>
                 {
                     b.Property<int>("Id")
@@ -392,6 +420,17 @@ namespace API.Migrations
                     b.HasOne("API.Models.BatchClass", "BatchClass")
                         .WithMany()
                         .HasForeignKey("batch_class");
+                });
+
+            modelBuilder.Entity("API.Models.Placement", b =>
+                {
+                    b.HasOne("API.Models.Customer", "Customerx")
+                        .WithMany("Placements")
+                        .HasForeignKey("Customer");
+
+                    b.HasOne("API.Models.Employee", "Employeex")
+                        .WithMany("Placements")
+                        .HasForeignKey("Employee");
                 });
 #pragma warning restore 612, 618
         }

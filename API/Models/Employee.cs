@@ -25,5 +25,7 @@ namespace API.Models
         [ForeignKey("District")]
         public int Hiring_Location { get; set; }
         public virtual District District { get; set; }
+
+        public ICollection<Placement> Placements { get; set; }
     }
 }

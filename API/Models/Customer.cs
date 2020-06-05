@@ -13,11 +13,14 @@ namespace API.Models
         public string Name { get; set; }
         public string Address { get; set; }
         public string Phone { get; set; }
+
         [ForeignKey("RelationManager")]
         public string Relation_Manager { get; set; }
         public Employee RelationManager { get; set; }
         [ForeignKey("Districtx")]
         public int District { get; set; }
         public District Districtx { get; set; }
+
+        public ICollection<Placement> Placements { get; set; }
     }
 }
