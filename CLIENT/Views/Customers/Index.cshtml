@@ -79,13 +79,11 @@
                 <div class="form-group">
                     <label for="Relation_Manager">Relation Manager</label>
                     <select id="Relation_Manager" class="pc form-control" name="Relation_Manager">
-                        <option>Select Relation Manager</option>
                     </select>
                 </div>
                 <div class="form-group">
                     <label for="District">District</label>
                     <select id="District" class="pc form-control district" name="District">
-                        <option>Select District</option>
                     </select>
                 </div>
                 <div class="form-group">
@@ -203,8 +201,6 @@
                     type: "Get",
                     url: "/Customers/LoadDistrict",
                     success: function (data) {
-                        //debugger;
-                        //Departments = data.data;
                         Districts = data;
                         renderDistrict(element);
                     }
@@ -221,8 +217,6 @@
             $ele.empty();
             $ele.append($('<option/>').val('0').text('Select District').hide());
             $.each(Districts, function (i, val) {
-                //$.each(Departments.data, function (i, val) {
-                //debugger;
                 $ele.append($('<option/>').val(val.id).text(val.name));
             })
         }
@@ -236,8 +230,6 @@
                     type: "Get",
                     url: "/Customers/LoadRM",
                     success: function (data) {
-                        //debugger;
-                        //Departments = data.data;
                         Employees = data;
                         renderEmployee(element);
                     }
@@ -254,8 +246,6 @@
             $ele.empty();
             $ele.append($('<option/>').val('0').text('Select Relation Manager').hide());
             $.each(Employees, function (i, val) {
-                //$.each(Departments.data, function (i, val) {
-                //debugger;
                 $ele.append($('<option/>').val(val.nik).text(val.name));
             })
         }
