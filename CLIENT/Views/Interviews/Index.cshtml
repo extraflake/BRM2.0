@@ -5,57 +5,76 @@
 }
 
 
-<div class="container-fluid">
-    <div class="row">
-        <div class="col-md-4 form-inline">
-            <div class="upload-btn-wrapper">
-                <button class="fa fa-cloud-upload btn btn-up"></button>
-                <input type="file" name="formFile" id="formFile" onchange="uploadFile('formFile');" />
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-md-4 form-inline">
+                <div class="upload-btn-wrapper">
+                    <button class="fa fa-cloud-upload btn btn-up"></button>
+                    <input type="file" name="formFile" id="formFile" onchange="uploadFile('formFile');" />
+                </div>
+                <div class="upload-btn-wrapper">
+                    <button type="button" id="Create" class="btn right fa fa-plus-circle btn-add" data-toggle="modal" data-target="#myModal" onclick="ClearScreen();"></button>
+                </div>
+                <a class="btn-dwn fa fa-file-excel-o" tabindex="0" aria-controls="example23" data-placement="down" title="Export To Excel" asp-controller="Customers" asp-action="exporttoexcel">
+                </a>
+                <a class="btn-add fa fa-file-pdf-o" tabindex="0" aria-controls="example23" data-placement="down" title="Export To PDF" asp-controller="Customers" asp-action="Report">
+                </a>
             </div>
-            <div class="upload-btn-wrapper">
-                <button type="button" id="Create" class="btn right fa fa-plus-circle btn-add" data-toggle="modal" data-target="#myModal" onclick="ClearScreen();"></button>
-            </div>
-            <a class="btn-dwn fa fa-file-excel-o" tabindex="0" aria-controls="example23" data-placement="down" title="Export To Excel" asp-controller="Customers" asp-action="exporttoexcel">
-            </a>
-            <a class="btn-add fa fa-file-pdf-o" tabindex="0" aria-controls="example23" data-placement="down" title="Export To PDF" asp-controller="Customers" asp-action="Report">
-            </a>
         </div>
+        <br />
+        <div class="row">
+            <div class="col">
+                <label for="Customer">From</label><br />
+                <input type="date" id="startDate" class="form-control" placeholder="Start Date">
+            </div>
+            <div class="col">
+                <label for="Customer">To</label><br />
+                <input type="date" id="endDate" class="form-control" placeholder="End Date">
+            </div>
+            <div class="col">
+                <br />
+                <button type="submit" id="search" class="btn btn-block btn-primary" onclick="LoadIndexFilterSort()">Filter</button>
+            </div>
+            <div class="col">
+                <br />
+                <button type="submit" id="reset" class="btn btn-block btn-primary" onclick="LoadIndexReset()">Reset</button>
+            </div>
+        </div>
+        <br/>
+        <table class="table dt-responsive nowrap" id="table" width="100%" cellspacing="0">
+            <thead>
+                <tr>
+                    <th style="background-color:skyblue;color:white;text-align:center;width:100px">
+                        No.
+                    </th>
+                    <th style="background-color:skyblue;color:white;text-align:center">
+                        NIK
+                    </th>
+                    <th style="background-color:skyblue;color:white;text-align:center">
+                        Employee
+                    </th>
+                    <th style="background-color:skyblue;color:white;text-align:center">
+                        DateTime
+                    </th>
+                    <th style="background-color:skyblue;color:white;text-align:center">
+                        Customer
+                    </th>
+                    <th style="background-color:skyblue;color:white;text-align:center">
+                        PIC
+                    </th>
+                    <th style="background-color:skyblue;color:white;text-align:center">
+                        Department
+                    </th>
+                    <th style="background-color:skyblue;color:white;text-align:center">
+                        Note
+                    </th>
+                    <th style="background-color:skyblue;color:white;text-align:center" class="no-sort">
+                        Action
+                    </th>
+                </tr>
+            </thead>
+        </table>
     </div>
-    <br />
-    <table class="table dt-responsive nowrap" id="table" width="100%" cellspacing="0">
-        <thead>
-            <tr>
-                <th style="background-color:skyblue;color:white;text-align:center;width:100px">
-                    No.
-                </th>
-                <th style="background-color:skyblue;color:white;text-align:center">
-                    NIK
-                </th>
-                <th style="background-color:skyblue;color:white;text-align:center">
-                    Employee
-                </th>
-                <th style="background-color:skyblue;color:white;text-align:center">
-                    DateTime
-                </th>
-                <th style="background-color:skyblue;color:white;text-align:center">
-                    Customer
-                </th>
-                <th style="background-color:skyblue;color:white;text-align:center">
-                    PIC
-                </th>
-                <th style="background-color:skyblue;color:white;text-align:center">
-                    Department
-                </th>
-                <th style="background-color:skyblue;color:white;text-align:center">
-                    Note
-                </th>
-                <th style="background-color:skyblue;color:white;text-align:center" class="no-sort">
-                    Action
-                </th>
-            </tr>
-        </thead>
-    </table>
-</div>
 <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
     <div class="modal-dialog">
         <div class="modal-content">
@@ -120,6 +139,7 @@
     <script src="~/js/datatables/dataTables.bootstrap4.min.js"></script>
     <script src="~/js/sweetalert2/sweetalert2@9.js"></script>
     <link href="~/css/uploaddownload.css" rel="stylesheet" />
+    <script src="~/js/moment/moment.js"></script>
 
     <script>
         var table = null;
@@ -184,7 +204,11 @@
                     },
                     { "data": "nik", "name": "nik", "autoWidth": true },
                     { "data": "employee", "name": "employee", "autoWidth": true },
-                    { "data": "interview_datetime", "name": "interviewdatetime", "autoWidth": true },
+                    {
+                        "data": "interview_datetime", "name": "interviewdatetime", "autoWidth": true, "render": function (data) {
+                            return moment(data).format('DD/MM/YYYY, HH:mm');
+                        }
+                    },
                     { "data": "customer", "name": "customer", "autoWidth": true },
                     { "data": "pic", "name": "pic", "autoWidth": true },
                     { "data": "department", "name": "department", "autoWidth": true },
@@ -203,11 +227,33 @@
             }).draw();
         });
 
-        function isNumberKey(evt) {
-            var charCode = (evt.which) ? evt.which : evt.keyCode;
-            if (charCode > 31 && (charCode < 48 || charCode > 57))
-                return false;
-            return true;
+        function LoadIndexFilterSort() {
+            var startdate = $("#startDate").val();
+            var endadate = $("#endDate").val();
+            if (startdate != "" && endadate != "") {
+                var table = $('#table').DataTable();
+                table.destroy();
+                $('#table').DataTable({
+                    "ajax": LoadIndexInterviewHistorySort()
+                });
+            }
+            else {
+                Swal.fire(
+                    'Oops!',
+                    'Please Fill Both Date Picker',
+                    'error'
+                )
+            }
+        }
+
+        function LoadIndexReset() {
+            var table = $('#table').DataTable();
+            table.destroy();
+            $('#table').DataTable({
+                "ajax": table.ajax.reload()
+            });
+            $('#startDate').val('');
+            $('#endDate').val('');
         }
 
         var Employees = []
@@ -283,18 +329,18 @@
         function GetById(id) {
             debugger;
             $.ajax({
-                url: "/Customers/GetById/",
+                url: "/Interviews/GetById/",
                 data: { id: id }
             }).then((result) => {
                 debugger;
                 if (result) {
                     $('#Id').val(result.id);
-                    $('#Id').prop('disabled', true);
-                    $('#Name').val(result.name);
-                    $('#Address').val(result.address);
-                    $('#Phone').val(result.phone);
-                    $('#Relation_Manager').val(result.relation_manager);
-                    $('#District').val(result.district);
+                    $('#Employee').val(result.employee);
+                    $('#Interviewer').val(result.pic);
+                    $('#datetimepicker').val(result.interviewdatetime);
+                    $('#Customer').val(result.customer);
+                    $('#Department').val(result.department);
+                    $('#Note').val(result.note);
                     $('#myModal').modal('show');
                     $('#Update').show();
                     $('#Save').hide();
@@ -428,7 +474,7 @@
                 if (result.value) {
                     debugger;
                     $.ajax({
-                        url: "/Customers/Delete/",
+                        url: "/Interviews/Delete/",
                         data: { id: id }
                     }).then((result) => {
                         debugger;
