@@ -7,8 +7,10 @@ using System.Threading.Tasks;
 using API.Models;
 using API.ViewModels;
 using CLIENT.Bases;
+using CLIENT.Report;
 using Microsoft.AspNetCore.Mvc;
 using Newtonsoft.Json;
+using OfficeOpenXml;
 
 namespace CLIENT.Controllers
 {
@@ -99,6 +101,85 @@ namespace CLIENT.Controllers
             };
             var result = client.DeleteAsync("Interviews/" + Id).Result;
             return Json(result);
+        }
+
+        public async Task<IActionResult> exporttoExcel()
+        {
+            var client = new HttpClient
+            {
+                BaseAddress = new Uri(baseLink.development)
+            };
+            var columnHeaders = new String[]
+            {
+                "Number",
+                "NIK",
+                "Employee",
+                "Date Time",
+                "Customer",
+                "PIC",
+                "Department",
+                "Notes"
+            };
+
+            byte[] result;
+
+            using (var package = new ExcelPackage())
+            {
+                var worksheet = package.Workbook.Worksheets.Add("List Interview");
+                using (var cells = worksheet.Cells[1, 1, 1, 8])
+                {
+                    cells.Style.Font.Bold = true;
+                }
+
+                for (var i = 0; i < columnHeaders.Count(); i++)
+                {
+                    worksheet.Cells[1, i + 1].Value = columnHeaders[i];
+                }
+
+                var j = 2;
+                HttpResponseMessage response = await client.GetAsync("Interviews/GetInterview");
+                if (response.IsSuccessStatusCode)
+                {
+                    var readTask = await response.Content.ReadAsAsync<IList<InterviewVM>>();
+                    foreach (var interview in readTask)
+                    {
+                        for (var x = 1; x < j; x++)
+                        {
+                            worksheet.Cells["A" + j].Value = x;
+                        }
+                        worksheet.Cells["B" + j].Value = interview.NIK;
+                        worksheet.Cells["C" + j].Value = interview.Employee;
+                        worksheet.Cells["D" + j].Value = interview.interview_datetime;
+                        worksheet.Cells["E" + j].Value = interview.Customer;
+                        worksheet.Cells["F" + j].Value = interview.PIC;
+                        worksheet.Cells["G" + j].Value = interview.Department;
+                        worksheet.Cells["H" + j].Value = interview.Note;
+                        j++;
+                    }
+                }
+                result = package.GetAsByteArray();
+            }
+            return File(result, "application/ms-excel", $"List Interview{DateTime.Now.ToString("hh:mm:ss MM/dd/yyyy")}.xlsx");
+        }
+
+        public async Task<IActionResult> Report(InterviewVM interviewVM)
+        {
+            InterviewList interviewList = new InterviewList();
+            var readTask = await exportToPDF();
+            byte[] abytes = interviewList.PrepareReport(readTask);
+            return File(abytes, "application/pdf", $"Interview List{DateTime.Now.ToString("hh:mm:ss MM/dd/yyyy")}.pdf");
+        }
+
+        public async Task<List<InterviewVM>> exportToPDF()
+        {
+            var client = new HttpClient
+            {
+                BaseAddress = new Uri(baseLink.development)
+            };
+            List<InterviewVM> interviewList = new List<InterviewVM>();
+            var responseTask = await client.GetAsync("Interviews/GetInterview");
+            interviewList = await responseTask.Content.ReadAsAsync<List<InterviewVM>>();
+            return interviewList;
         }
     }
 }

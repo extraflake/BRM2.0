@@ -9,21 +9,21 @@ using System.Threading.Tasks;
 
 namespace CLIENT.Report
 {
-    public class CustList
+    public class InterviewList
     {
         #region Declaration
-        int totalColumn = 9; //column number
+        int totalColumn = 8; //column number
         Document _document;
         Font _fontStyles;
-        PdfPTable _pdfTable = new PdfPTable(9); //column number
+        PdfPTable _pdfTable = new PdfPTable(8); //column number
         PdfPCell _pdfCell;
         MemoryStream _memoryStream = new MemoryStream();
-        List<CustomerVM> custList = new List<CustomerVM>();
+        List<InterviewVM> interviewList = new List<InterviewVM>();
         #endregion
 
-        public byte[] PrepareReport(List<CustomerVM> customerVMs)
+        public byte[] PrepareReport(List<InterviewVM> interviewVMs)
         {
-            custList = customerVMs;
+            interviewList = interviewVMs;
 
             #region
             _document = new Document(PageSize.A4, 0f, 0f, 0f, 0f); //margin
@@ -34,7 +34,7 @@ namespace CLIENT.Report
             _fontStyles = FontFactory.GetFont("Times New Roman", 8f, 1);
             PdfWriter.GetInstance(_document, _memoryStream);
             _document.Open();
-            _pdfTable.SetWidths(new float[] { 20f, 20f, 20f, 20f, 20f, 20f, 20f, 20f, 20f }); //adjust with the column number
+            _pdfTable.SetWidths(new float[] { 20f, 20f, 20f, 20f, 20f, 20f, 20f, 20f }); //adjust with the column number
             #endregion
 
             this.ReportHeader();
@@ -48,8 +48,8 @@ namespace CLIENT.Report
         public void ReportHeader()
         {
             _fontStyles = FontFactory.GetFont("Times New Roman", 24f, 1);
-            _pdfCell = new PdfPCell(new Phrase("Customer List", _fontStyles));
-            _pdfCell.Colspan = totalColumn; 
+            _pdfCell = new PdfPCell(new Phrase("Interview List", _fontStyles));
+            _pdfCell.Colspan = totalColumn;
             _pdfCell.HorizontalAlignment = Element.ALIGN_CENTER;
             _pdfCell.Border = 0;
             _pdfCell.BackgroundColor = BaseColor.WHITE;
@@ -69,49 +69,43 @@ namespace CLIENT.Report
             _pdfCell.BackgroundColor = BaseColor.WHITE;
             _pdfTable.AddCell(_pdfCell);
 
-            _pdfCell = new PdfPCell(new Phrase("Id", _fontStyles));
+            _pdfCell = new PdfPCell(new Phrase("NIK", _fontStyles));
             _pdfCell.HorizontalAlignment = Element.ALIGN_CENTER;
             _pdfCell.VerticalAlignment = Element.ALIGN_MIDDLE;
             _pdfCell.BackgroundColor = BaseColor.WHITE;
             _pdfTable.AddCell(_pdfCell);
 
-            _pdfCell = new PdfPCell(new Phrase("Customer Name", _fontStyles));
+            _pdfCell = new PdfPCell(new Phrase("Employe", _fontStyles));
             _pdfCell.HorizontalAlignment = Element.ALIGN_CENTER;
             _pdfCell.VerticalAlignment = Element.ALIGN_MIDDLE;
             _pdfCell.BackgroundColor = BaseColor.WHITE;
             _pdfTable.AddCell(_pdfCell);
 
-            _pdfCell = new PdfPCell(new Phrase("Customer Address", _fontStyles));
+            _pdfCell = new PdfPCell(new Phrase("Date Time", _fontStyles));
             _pdfCell.HorizontalAlignment = Element.ALIGN_CENTER;
             _pdfCell.VerticalAlignment = Element.ALIGN_MIDDLE;
             _pdfCell.BackgroundColor = BaseColor.WHITE;
             _pdfTable.AddCell(_pdfCell);
 
-            _pdfCell = new PdfPCell(new Phrase("Customer Phone", _fontStyles));
+            _pdfCell = new PdfPCell(new Phrase("Customer", _fontStyles));
             _pdfCell.HorizontalAlignment = Element.ALIGN_CENTER;
             _pdfCell.VerticalAlignment = Element.ALIGN_MIDDLE;
             _pdfCell.BackgroundColor = BaseColor.WHITE;
             _pdfTable.AddCell(_pdfCell);
 
-            _pdfCell = new PdfPCell(new Phrase("Relation Manager", _fontStyles));
+            _pdfCell = new PdfPCell(new Phrase("PIC", _fontStyles));
             _pdfCell.HorizontalAlignment = Element.ALIGN_CENTER;
             _pdfCell.VerticalAlignment = Element.ALIGN_MIDDLE;
             _pdfCell.BackgroundColor = BaseColor.WHITE;
             _pdfTable.AddCell(_pdfCell);
 
-            _pdfCell = new PdfPCell(new Phrase("Relation Manager ID", _fontStyles));
+            _pdfCell = new PdfPCell(new Phrase("Department", _fontStyles));
             _pdfCell.HorizontalAlignment = Element.ALIGN_CENTER;
             _pdfCell.VerticalAlignment = Element.ALIGN_MIDDLE;
             _pdfCell.BackgroundColor = BaseColor.WHITE;
             _pdfTable.AddCell(_pdfCell);
 
-            _pdfCell = new PdfPCell(new Phrase("District", _fontStyles));
-            _pdfCell.HorizontalAlignment = Element.ALIGN_CENTER;
-            _pdfCell.VerticalAlignment = Element.ALIGN_MIDDLE;
-            _pdfCell.BackgroundColor = BaseColor.WHITE;
-            _pdfTable.AddCell(_pdfCell);
-
-            _pdfCell = new PdfPCell(new Phrase("Relation Manager Phone Number", _fontStyles));
+            _pdfCell = new PdfPCell(new Phrase("Notes", _fontStyles));
             _pdfCell.HorizontalAlignment = Element.ALIGN_CENTER;
             _pdfCell.VerticalAlignment = Element.ALIGN_MIDDLE;
             _pdfCell.BackgroundColor = BaseColor.WHITE;
@@ -122,7 +116,7 @@ namespace CLIENT.Report
             #region table body
             _fontStyles = FontFactory.GetFont("Tahoma", 8f, 0);
             int serialNumber = 1;
-            foreach (CustomerVM customer in custList)
+            foreach (InterviewVM interview in interviewList)
             {
                 _pdfCell = new PdfPCell(new Phrase(serialNumber++.ToString(), _fontStyles));
                 _pdfCell.HorizontalAlignment = Element.ALIGN_CENTER;
@@ -130,56 +124,50 @@ namespace CLIENT.Report
                 _pdfCell.BackgroundColor = BaseColor.WHITE;
                 _pdfTable.AddCell(_pdfCell);
 
-                _pdfCell = new PdfPCell(new Phrase(customer.Id, _fontStyles));
+                _pdfCell = new PdfPCell(new Phrase(interview.NIK, _fontStyles));
                 _pdfCell.HorizontalAlignment = Element.ALIGN_CENTER;
                 _pdfCell.VerticalAlignment = Element.ALIGN_MIDDLE;
                 _pdfCell.BackgroundColor = BaseColor.WHITE;
                 _pdfTable.AddCell(_pdfCell);
 
-                _pdfCell = new PdfPCell(new Phrase(customer.Name, _fontStyles));
-                _pdfCell.HorizontalAlignment = Element.ALIGN_CENTER;
-                _pdfCell.VerticalAlignment = Element.ALIGN_MIDDLE;
-                _pdfCell.BackgroundColor = BaseColor.WHITE;
-                _pdfTable.AddCell(_pdfCell);
-
-
-                _pdfCell = new PdfPCell(new Phrase(customer.Address, _fontStyles));
-                _pdfCell.HorizontalAlignment = Element.ALIGN_CENTER;
-                _pdfCell.VerticalAlignment = Element.ALIGN_MIDDLE;
-                _pdfCell.BackgroundColor = BaseColor.WHITE;
-                _pdfTable.AddCell(_pdfCell);
-
-                _pdfCell = new PdfPCell(new Phrase(customer.Phone, _fontStyles));
-                _pdfCell.HorizontalAlignment = Element.ALIGN_CENTER;
-                _pdfCell.VerticalAlignment = Element.ALIGN_MIDDLE;
-                _pdfCell.BackgroundColor = BaseColor.WHITE;
-                _pdfTable.AddCell(_pdfCell);
-
-                _pdfCell = new PdfPCell(new Phrase(customer.relation_manager, _fontStyles));
+                _pdfCell = new PdfPCell(new Phrase(interview.Employee, _fontStyles));
                 _pdfCell.HorizontalAlignment = Element.ALIGN_CENTER;
                 _pdfCell.VerticalAlignment = Element.ALIGN_MIDDLE;
                 _pdfCell.BackgroundColor = BaseColor.WHITE;
                 _pdfTable.AddCell(_pdfCell);
 
 
-                _pdfCell = new PdfPCell(new Phrase(customer.employee_id, _fontStyles));
+
+                _pdfCell = new PdfPCell(new Phrase(interview.interview_datetime.ToString(), _fontStyles));
                 _pdfCell.HorizontalAlignment = Element.ALIGN_CENTER;
                 _pdfCell.VerticalAlignment = Element.ALIGN_MIDDLE;
                 _pdfCell.BackgroundColor = BaseColor.WHITE;
                 _pdfTable.AddCell(_pdfCell);
 
-                _pdfCell = new PdfPCell(new Phrase(customer.district, _fontStyles));
+                _pdfCell = new PdfPCell(new Phrase(interview.Customer, _fontStyles));
                 _pdfCell.HorizontalAlignment = Element.ALIGN_CENTER;
                 _pdfCell.VerticalAlignment = Element.ALIGN_MIDDLE;
                 _pdfCell.BackgroundColor = BaseColor.WHITE;
                 _pdfTable.AddCell(_pdfCell);
 
-                _pdfCell = new PdfPCell(new Phrase(customer.phone_relation_manager, _fontStyles));
+                _pdfCell = new PdfPCell(new Phrase(interview.PIC, _fontStyles));
                 _pdfCell.HorizontalAlignment = Element.ALIGN_CENTER;
                 _pdfCell.VerticalAlignment = Element.ALIGN_MIDDLE;
                 _pdfCell.BackgroundColor = BaseColor.WHITE;
                 _pdfTable.AddCell(_pdfCell);
 
+
+                _pdfCell = new PdfPCell(new Phrase(interview.Department, _fontStyles));
+                _pdfCell.HorizontalAlignment = Element.ALIGN_CENTER;
+                _pdfCell.VerticalAlignment = Element.ALIGN_MIDDLE;
+                _pdfCell.BackgroundColor = BaseColor.WHITE;
+                _pdfTable.AddCell(_pdfCell);
+
+                _pdfCell = new PdfPCell(new Phrase(interview.Note, _fontStyles));
+                _pdfCell.HorizontalAlignment = Element.ALIGN_CENTER;
+                _pdfCell.VerticalAlignment = Element.ALIGN_MIDDLE;
+                _pdfCell.BackgroundColor = BaseColor.WHITE;
+                _pdfTable.AddCell(_pdfCell);
                 _pdfTable.CompleteRow();
             }
             #endregion
