@@ -8,12 +8,13 @@ using API.Services.Data;
 using API.ViewModels;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
+using static API.Bases.BaseTranscationController;
 
 namespace API.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
-    public class InterviewsController : BaseController<Interview, InterviewService>
+    public class InterviewsController : BaseTransactionController<Interview, InterviewService>
     {
         private readonly InterviewService _interviewService;
 
@@ -31,35 +32,6 @@ namespace API.Controllers
                 return Ok(get);
             }
             return BadRequest();
-        }
-
-        [HttpGet("GetById/{id}")]
-        public async Task<ActionResult<Interview>> Get(int id)
-        {
-            var get = await _interviewService.GetById(id);
-            if (get == null)
-            {
-                return NotFound();
-            }
-            return Ok(get);
-        }
-
-        [HttpPut("PutById/{id}")]
-        public async Task<ActionResult> Put(int id, Interview interview)
-        {
-            await _interviewService.Put(interview);
-            return NoContent();
-        }
-
-        [HttpDelete("DeleteById/{id}")]
-        public async Task<ActionResult<int>> Delete(int id)
-        {
-            var delete = await _interviewService.DeleteById(id);
-            if (delete.Equals(0))
-            {
-                return NotFound();
-            }
-            return delete;
         }
     }
 }

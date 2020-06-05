@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace API.Services.Data
 {
-    public class InterviewService : GeneralService<Interview, InterviewRepository>
+    public class InterviewService : TransactionService<Interview, InterviewRepository>
     {
         private readonly InterviewRepository _interviewRepository;
 
@@ -20,16 +20,6 @@ namespace API.Services.Data
         public IEnumerable<InterviewVM> GetInterview()
         {
             return _interviewRepository.GetInterview();
-        }
-
-        public Task<Interview> GetById(int id)
-        {
-            return _interviewRepository.GetById(id);
-        }
-
-        public Task<int> DeleteById(int id)
-        {
-            return _interviewRepository.DeleteById(id);
         }
     }
 }

@@ -6,7 +6,6 @@ D:\Metrodata\BRM2.0\API\bin\Debug\netcoreapp2.1\API.runtimeconfig.json
 D:\Metrodata\BRM2.0\API\bin\Debug\netcoreapp2.1\API.runtimeconfig.dev.json
 D:\Metrodata\BRM2.0\API\bin\Debug\netcoreapp2.1\API.dll
 D:\Metrodata\BRM2.0\API\bin\Debug\netcoreapp2.1\API.pdb
-D:\Metrodata\BRM2.0\API\obj\Debug\netcoreapp2.1\API.csprojAssemblyReference.cache
 D:\Metrodata\BRM2.0\API\obj\Debug\netcoreapp2.1\API.csproj.CoreCompileInputs.cache
 D:\Metrodata\BRM2.0\API\obj\Debug\netcoreapp2.1\API.RazorAssemblyInfo.cache
 D:\Metrodata\BRM2.0\API\obj\Debug\netcoreapp2.1\API.RazorAssemblyInfo.cs

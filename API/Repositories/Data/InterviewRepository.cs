@@ -11,7 +11,7 @@ using System.Threading.Tasks;
 
 namespace API.Repositories.Data
 {
-    public class InterviewRepository : GeneralRepository<Interview, MyContext>
+    public class InterviewRepository : TransactionRepository<Interview, MyContext>
     {
         IConfiguration _configuration { get; }
         private readonly MyContext _myContext;
@@ -29,28 +29,6 @@ namespace API.Repositories.Data
                 var result = connection.Query<InterviewVM>("call sp_retrieve_interview_employee_customer2").ToList();
                 return result;
             }
-        }
-
-        public async Task<Interview> GetById(int id)
-        {
-            var result = await _myContext.Set<Interview>().FindAsync(id);
-            if (result != null)
-            {
-                return result;
-            }
-            return null;
-        }
-
-        public async Task<int> DeleteById(int id)
-        {
-            var entity = await GetById(id);
-            if (entity == null)
-            {
-                return 0;
-            }
-            _myContext.Set<Interview>().Remove(entity);
-            var result = await _myContext.SaveChangesAsync();
-            return result;
-        }
+        }        
     }
 }
