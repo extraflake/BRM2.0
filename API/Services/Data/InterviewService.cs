@@ -25,6 +25,19 @@ namespace API.Services.Data
         {
             return _interviewRepository.GetInterviewSort(start, end);
         }
+        public Task<int> FullPost(Interview interview)
+        {
+            return _interviewRepository.FullPost(interview);
+        }
 
+        public Task<Interview> GetById(int id)
+        {
+            return _interviewRepository.GetById(id);
+        }
+
+        public Task<int> FullPut(Interview interview)
+        {
+            return _interviewRepository.FullPut(interview);
+        }
     }
 }

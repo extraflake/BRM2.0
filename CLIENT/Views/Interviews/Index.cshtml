@@ -142,7 +142,7 @@
     <script>
         var table = null;
         $(document).ready(function () {
-            //debugger;
+            debugger;
             table = $('#table').DataTable({
                 "serverside": true,
                 "filter": true,
@@ -394,7 +394,7 @@
                         Swal.fire({
                             position: 'center',
                             type: 'success',
-                            title: 'Customer Added Successfully'
+                            title: 'Interview Added Successfully'
                         });
                         table.ajax.reload();
                     } else {
@@ -425,7 +425,7 @@
                     Swal.fire({
                         position: 'center',
                         type: 'success',
-                        title: 'Customer Updated Successfully'
+                        title: 'Interview Updated Successfully'
                     });
                     table.ajax.reload();
                 } else {

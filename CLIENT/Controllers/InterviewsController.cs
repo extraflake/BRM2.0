@@ -106,12 +106,12 @@ namespace CLIENT.Controllers
             byteContent.Headers.ContentType = new MediaTypeHeaderValue("application/json");
             if (interview.Id == 0)
             {
-                var result = client.PostAsync("Interviews", byteContent).Result;
+                var result = client.PostAsync("Interviews/FullPost", byteContent).Result;
                 return Json(result);
             }
             else
             {
-                var result = client.PutAsync("Interviews/" + interview.Id, byteContent).Result;
+                var result = client.PutAsync("Interviews/FullPut/" + interview.Id, byteContent).Result;
                 return Json(result);
             }
         }

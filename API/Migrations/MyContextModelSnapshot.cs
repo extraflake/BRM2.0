@@ -28,7 +28,7 @@ namespace API.Migrations
 
                     b.Property<string>("Number");
 
-                    b.Property<DateTimeOffset>("Update_Datetime");
+                    b.Property<DateTimeOffset?>("Update_Datetime");
 
                     b.Property<string>("Updated_By");
 
@@ -62,7 +62,7 @@ namespace API.Migrations
 
                     b.Property<string>("Type");
 
-                    b.Property<DateTimeOffset>("Update_Datetime");
+                    b.Property<DateTimeOffset?>("Update_Datetime");
 
                     b.Property<string>("Updated_By");
 
@@ -84,7 +84,7 @@ namespace API.Migrations
 
                     b.Property<int>("Quantity");
 
-                    b.Property<DateTimeOffset>("Update_Datetime");
+                    b.Property<DateTimeOffset?>("Update_Datetime");
 
                     b.Property<string>("Updated_By");
 
@@ -116,7 +116,7 @@ namespace API.Migrations
 
                     b.Property<string>("Name");
 
-                    b.Property<DateTimeOffset>("Update_Datetime");
+                    b.Property<DateTimeOffset?>("Update_Datetime");
 
                     b.Property<string>("Updated_By");
 
@@ -185,7 +185,7 @@ namespace API.Migrations
 
                     b.Property<string>("Phone");
 
-                    b.Property<DateTimeOffset>("Update_Datetime");
+                    b.Property<DateTimeOffset?>("Update_Datetime");
 
                     b.Property<string>("Updated_By");
 
@@ -235,7 +235,7 @@ namespace API.Migrations
 
                     b.Property<string>("PIC");
 
-                    b.Property<DateTimeOffset>("Update_Datetime");
+                    b.Property<DateTimeOffset?>("Update_Datetime");
 
                     b.Property<string>("Updated_By");
 
@@ -261,7 +261,7 @@ namespace API.Migrations
 
                     b.Property<string>("Grade");
 
-                    b.Property<DateTimeOffset>("Update_Datetime");
+                    b.Property<DateTimeOffset?>("Update_Datetime");
 
                     b.Property<string>("Updated_By");
 
@@ -309,7 +309,7 @@ namespace API.Migrations
 
                     b.Property<string>("Name");
 
-                    b.Property<DateTimeOffset>("Update_Datetime");
+                    b.Property<DateTimeOffset?>("Update_Datetime");
 
                     b.Property<string>("Updated_By");
 
@@ -329,7 +329,7 @@ namespace API.Migrations
 
                     b.Property<string>("Name");
 
-                    b.Property<DateTimeOffset>("Update_Datetime");
+                    b.Property<DateTimeOffset?>("Update_Datetime");
 
                     b.Property<string>("Updated_By");
 

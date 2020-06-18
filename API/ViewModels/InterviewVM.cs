@@ -16,8 +16,8 @@ namespace API.ViewModels
         public string Note { get; set; }
         public string Customer { get; set; }
         public string Created_By { get; set; }
-        public DateTimeOffset? Created_Date { get; set; }
-        public string Update_By { get; set; }
-        public DateTimeOffset? Update_Date { get; set; }
+        public DateTimeOffset? Create_Datetime { get; set; }
+        public string Updated_By { get; set; }
+        public DateTimeOffset? Update_Datetime { get; set; }
     }
 }
