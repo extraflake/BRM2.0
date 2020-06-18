@@ -3,78 +3,76 @@
     ViewData["Title"] = "Index";
     Layout = "~/Views/Shared/_LayoutAdministrator.cshtml";
 }
-
-
-    <div class="container-fluid">
-        <div class="row">
-            <div class="col-md-4 form-inline">
-                <div class="upload-btn-wrapper">
-                    <button class="fa fa-cloud-upload btn btn-up"></button>
-                    <input type="file" name="formFile" id="formFile" onchange="uploadFile('formFile');" />
-                </div>
-                <div class="upload-btn-wrapper">
-                    <button type="button" id="Create" class="btn right fa fa-plus-circle btn-add" data-toggle="modal" data-target="#myModal" onclick="ClearScreen();"></button>
-                </div>
-                <a class="btn-dwn fa fa-file-excel-o" tabindex="0" aria-controls="example23" data-placement="down" title="Export To Excel" asp-controller="Interviews" asp-action="exporttoexcel">
-                </a>
-                <a class="btn-add fa fa-file-pdf-o" tabindex="0" aria-controls="example23" data-placement="down" title="Export To PDF" asp-controller="Interviews" asp-action="Report">
-                </a>
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-md-4 form-inline">
+            <div class="upload-btn-wrapper">
+                <button class="fa fa-cloud-upload btn btn-up"></button>
+                <input type="file" name="formFile" id="formFile" onchange="uploadFile('formFile');" />
             </div>
+            <div class="upload-btn-wrapper">
+                <button type="button" id="Create" class="btn right fa fa-plus-circle btn-add" data-toggle="modal" data-target="#myModal" onclick="ClearScreen();"></button>
+            </div>
+            <a class="btn-dwn fa fa-file-excel-o" tabindex="0" aria-controls="example23" data-placement="down" title="Export To Excel" asp-controller="Interviews" asp-action="exporttoexcel">
+            </a>
+            <a class="btn-add fa fa-file-pdf-o" tabindex="0" aria-controls="example23" data-placement="down" title="Export To PDF" asp-controller="Interviews" asp-action="Report">
+            </a>
         </div>
-        <br />
-        <div class="row">
-            <div class="col">
-                <label for="Customer">From</label><br />
-                <input type="date" id="startDate" class="form-control" placeholder="Start Date">
-            </div>
-            <div class="col">
-                <label for="Customer">To</label><br />
-                <input type="date" id="endDate" class="form-control" placeholder="End Date">
-            </div>
-            <div class="col">
-                <br />
-                <button type="submit" id="search" class="btn btn-block btn-primary" onclick="LoadIndexFilterSort()">Filter</button>
-            </div>
-            <div class="col">
-                <br />
-                <button type="submit" id="reset" class="btn btn-block btn-primary" onclick="LoadIndexReset()">Reset</button>
-            </div>
-        </div>
-        <br/>
-        <table class="table dt-responsive nowrap" id="table" width="100%" cellspacing="0">
-            <thead>
-                <tr>
-                    <th style="background-color:skyblue;color:white;text-align:center;width:100px">
-                        No.
-                    </th>
-                    <th style="background-color:skyblue;color:white;text-align:center">
-                        NIK
-                    </th>
-                    <th style="background-color:skyblue;color:white;text-align:center">
-                        Employee
-                    </th>
-                    <th style="background-color:skyblue;color:white;text-align:center">
-                        DateTime
-                    </th>
-                    <th style="background-color:skyblue;color:white;text-align:center">
-                        Customer
-                    </th>
-                    <th style="background-color:skyblue;color:white;text-align:center">
-                        PIC
-                    </th>
-                    <th style="background-color:skyblue;color:white;text-align:center">
-                        Department
-                    </th>
-                    <th style="background-color:skyblue;color:white;text-align:center">
-                        Note
-                    </th>
-                    <th style="background-color:skyblue;color:white;text-align:center" class="no-sort">
-                        Action
-                    </th>
-                </tr>
-            </thead>
-        </table>
     </div>
+    <br />
+    <div class="row">
+        <div class="col">
+            <label for="Customer">From</label><br />
+            <input type="date" id="startDate" class="form-control" placeholder="Start Date">
+        </div>
+        <div class="col">
+            <label for="Customer">To</label><br />
+            <input type="date" id="endDate" class="form-control" placeholder="End Date">
+        </div>
+        <div class="col">
+            <br />
+            <button type="submit" id="search" class="btn btn-block btn-primary" onclick="LoadIndexFilterSort()">Filter</button>
+        </div>
+        <div class="col">
+            <br />
+            <button type="submit" id="reset" class="btn btn-block btn-primary" onclick="LoadIndexReset()">Reset</button>
+        </div>
+    </div>
+    <br />
+    <table class="table dt-responsive nowrap" id="table" width="100%" cellspacing="0">
+        <thead>
+            <tr>
+                <th style="background-color:skyblue;color:white;text-align:center;width:100px">
+                    No.
+                </th>
+                <th style="background-color:skyblue;color:white;text-align:center">
+                    NIK
+                </th>
+                <th style="background-color:skyblue;color:white;text-align:center">
+                    Employee
+                </th>
+                <th style="background-color:skyblue;color:white;text-align:center">
+                    DateTime
+                </th>
+                <th style="background-color:skyblue;color:white;text-align:center">
+                    Customer
+                </th>
+                <th style="background-color:skyblue;color:white;text-align:center">
+                    PIC
+                </th>
+                <th style="background-color:skyblue;color:white;text-align:center">
+                    Department
+                </th>
+                <th style="background-color:skyblue;color:white;text-align:center">
+                    Note
+                </th>
+                <th style="background-color:skyblue;color:white;text-align:center" class="no-sort">
+                    Action
+                </th>
+            </tr>
+        </thead>
+    </table>
+</div>
 <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
     <div class="modal-dialog">
         <div class="modal-content">
@@ -101,7 +99,7 @@
                     <div class="input-group">
                         <div class="input-group-prepend">
                             <button type="button" id="toggle" class="input-group-text"><i class="fa fa-calendar"></i></button>
-                            <input type="text" id="datetimepicker" />
+                            <input type="datetime-local" id="datetimepicker" />
                         </div>
                     </div>
                     <input type="text" id="CreatedBy" hidden="hidden">
@@ -227,35 +225,6 @@
             }).draw();
         });
 
-        function LoadIndexFilterSort() {
-            var startdate = $("#startDate").val();
-            var endadate = $("#endDate").val();
-            if (startdate != "" && endadate != "") {
-                var table = $('#table').DataTable();
-                table.destroy();
-                $('#table').DataTable({
-                    "ajax": LoadIndexInterviewHistorySort()
-                });
-            }
-            else {
-                Swal.fire(
-                    'Oops!',
-                    'Please Fill Both Date Picker',
-                    'error'
-                )
-            }
-        }
-
-        function LoadIndexReset() {
-            var table = $('#table').DataTable();
-            table.destroy();
-            $('#table').DataTable({
-                "ajax": table.ajax.reload()
-            });
-            $('#startDate').val('');
-            $('#endDate').val('');
-        }
-
         var Employees = []
         function LoadEmployee(element) {
             if (Employees.length === 0) {
@@ -327,17 +296,19 @@
         }
 
         function GetById(id) {
-            debugger;
+            //debugger;
             $.ajax({
                 url: "/Interviews/GetById/",
                 data: { id: id }
             }).then((result) => {
-                debugger;
+                //debugger;
                 if (result) {
                     $('#Id').val(result.id);
                     $('#Employee').val(result.employee);
                     $('#Interviewer').val(result.pic);
-                    $('#datetimepicker').val(result.interviewdatetime);
+                    $('#datetimepicker').val(moment(result.interview_datetime).format('YYYY-MM-DD'));
+                    //$('#datetimepicker').val(moment(result.interview_datetime).format('YYYY-MM-DD h:mm:ss a'));
+                    //$('#datetimepicker').val(result.interviewdatetime);
                     $('#Customer').val(result.customer);
                     $('#Department').val(result.department);
                     $('#Note').val(result.note);
@@ -349,73 +320,74 @@
         }
 
         function Save() {
-            if ($('#Id').val() == 0) {
+            if ($('#Employee').val() == 0) {
                 Swal.fire({
                     position: 'center',
                     type: 'error',
-                    title: 'Please Full Fill The Id',
+                    title: 'Please Select Employee',
                     showConfirmButton: false,
                     timer: 1500
                 });
             }
-            else if ($('#Name').val() == 0) {
+            else if ($('#Interviewer').val() == 0) {
                 Swal.fire({
                     position: 'center',
                     type: 'error',
-                    title: 'Please Full Fill The Customer Name',
+                    title: 'Please Full Fill The Interviewer',
                     showConfirmButton: false,
                     timer: 1500
                 });
             }
-            else if ($('#Address').val() == 0) {
+            else if ($('#datetimepicker').val() == 0) {
                 Swal.fire({
                     position: 'center',
                     type: 'error',
-                    title: 'Please Full Fill The Address',
+                    title: 'Please Full Fill The Interview Date',
                     showConfirmButton: false,
                     timer: 1500
                 });
             }
-            else if ($('#Phone').val() == 0) {
+            else if ($('#Customer').val() == 0) {
                 Swal.fire({
                     position: 'center',
                     type: 'error',
-                    title: 'Please Full Fill The Phone',
+                    title: 'Please Select The Customer',
                     showConfirmButton: false,
                     timer: 1500
                 });
             }
-            else if ($('#Relation Manager').val() == 0) {
+            else if ($('#Department').val() == 0) {
                 Swal.fire({
                     position: 'center',
                     type: 'error',
-                    title: 'Please Select The Relation Manager',
+                    title: 'Please Full Fill The Department',
                     showConfirmButton: false,
                     timer: 1500
                 });
             }
-            else if ($('#District').val() == 0) {
+            else if ($('#Note').val() == 0) {
                 Swal.fire({
                     position: 'center',
                     type: 'error',
-                    title: 'Please Select The District',
+                    title: 'Please Full Fill The Note',
                     showConfirmButton: false,
                     timer: 1500
                 });
             }
             else {
                 debugger;
-                var Customer = new Object();
-                Customer.id = $('#Id').val();
-                Customer.name = $('#Name').val();
-                Customer.address = $('#Address').val();
-                Customer.phone = $('#Phone').val();
-                Customer.relation_manager = $('#Relation_Manager').val();
-                Customer.district = $('#District').val();
+                var Interview = new Object();
+                Interview.id = $('#Id').val();
+                Interview.employee = $('#Employee').val();
+                Interview.pic = $('#Interviewer').val();
+                Interview.interview_datetime = $('#datetimepicker').val();
+                Interview.customer = $('#Customer').val();
+                Interview.department = $('#Department').val();
+                Interview.note = $('#Note').val();
                 $.ajax({
                     type: 'POST',
-                    url: '/Customers/Insert/',
-                    data: Customer
+                    url: '/Interviews/InsertOrUpdate/',
+                    data: Interview
                 }).then((result) => {
                     debugger;
                     if (result.statusCode == 201 || result.statusCode == 204 || result.statusCode == 200) {
@@ -435,17 +407,18 @@
 
         function Update() {
             debugger;
-            var Customer = new Object();
-            Customer.id = $('#Id').val();
-            Customer.name = $('#Name').val();
-            Customer.address = $('#Address').val();
-            Customer.phone = $('#Phone').val();
-            Customer.relation_manager = $('#Relation_Manager').val();
-            Customer.district = $('#District').val();
+            var Interview = new Object();
+            Interview.id = $('#Id').val();
+            Interview.employee = $('#Employee').val();
+            Interview.pic = $('#Interviewer').val();
+            Interview.interview_datetime = $('#datetimepicker').val();
+            Interview.customer = $('#Customer').val();
+            Interview.department = $('#Department').val();
+            Interview.note = $('#Note').val();
             $.ajax({
                 type: "POST",
-                url: '/Customers/Update/',
-                data: Customer
+                url: '/Interviews/InsertOrUpdate/',
+                data: Interview
             }).then((result) => {
                 debugger;
                 if (result.statusCode == 201 || result.statusCode == 204 || result.statusCode == 200) {
@@ -511,4 +484,3 @@
         color: black;
     }
 </style>
-

@@ -21,5 +21,10 @@ namespace API.Services.Data
         {
             return _interviewRepository.GetInterview();
         }
+        public IEnumerable<InterviewVM> GetInterviewSort(string start, string end)
+        {
+            return _interviewRepository.GetInterviewSort(start, end);
+        }
+
     }
 }

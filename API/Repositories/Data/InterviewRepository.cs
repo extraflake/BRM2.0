@@ -29,6 +29,14 @@ namespace API.Repositories.Data
                 var result = connection.Query<InterviewVM>("call sp_retrieve_interview_employee_customer2").ToList();
                 return result;
             }
+        }
+        public IEnumerable<InterviewVM> GetInterviewSort(string start, string end)
+        {
+            using (var connection = new MySqlConnection(_configuration.GetConnectionString("Storage")))
+            {
+                var result = connection.Query<InterviewVM>("call sp_retrieve_interview_employee_customer_sort2({start},{end})").ToList();
+                return result;
+            }
         }        
     }
 }

@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Net.Http;
+using System.Net.Http.Headers;
 using System.Reflection.Metadata;
 using System.Threading.Tasks;
 using API.Models;
@@ -91,6 +92,28 @@ namespace CLIENT.Controllers
                 ModelState.AddModelError(string.Empty, "Server error try after some time.");
             }
             return Json(interview);
+        }
+
+        public JsonResult InsertOrUpdate(Interview interview)
+        {
+            var client = new HttpClient
+            {
+                BaseAddress = new Uri(baseLink.development)
+            };
+            var myContent = JsonConvert.SerializeObject(interview);
+            var buffer = System.Text.Encoding.UTF8.GetBytes(myContent);
+            var byteContent = new ByteArrayContent(buffer);
+            byteContent.Headers.ContentType = new MediaTypeHeaderValue("application/json");
+            if (interview.Id == 0)
+            {
+                var result = client.PostAsync("Interviews", byteContent).Result;
+                return Json(result);
+            }
+            else
+            {
+                var result = client.PutAsync("Interviews/" + interview.Id, byteContent).Result;
+                return Json(result);
+            }
         }
 
         public JsonResult Delete(string Id)

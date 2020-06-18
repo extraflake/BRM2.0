@@ -33,5 +33,16 @@ namespace API.Controllers
             }
             return BadRequest();
         }
+        [HttpGet("{start}/{end}")]
+        public IActionResult GetInterviewSort(string start, string end)
+        {
+            var get = _interviewService.GetInterviewSort(start, end);
+            if (!get.Equals(0))
+            {
+                return Ok(get);
+            }
+            return BadRequest();
+        }
+
     }
 }

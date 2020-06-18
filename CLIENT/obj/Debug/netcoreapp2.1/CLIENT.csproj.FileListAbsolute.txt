@@ -11,12 +11,12 @@ D:\Metrodata\BRM2.0\CLIENT\bin\Debug\netcoreapp2.1\CLIENT.Views.pdb
 D:\Metrodata\BRM2.0\CLIENT\bin\Debug\netcoreapp2.1\API.dll
 D:\Metrodata\BRM2.0\CLIENT\bin\Debug\netcoreapp2.1\API.pdb
 D:\Metrodata\BRM2.0\CLIENT\obj\Debug\netcoreapp2.1\CLIENT.csprojAssemblyReference.cache
+D:\Metrodata\BRM2.0\CLIENT\obj\Debug\netcoreapp2.1\CLIENT.AssemblyInfoInputs.cache
+D:\Metrodata\BRM2.0\CLIENT\obj\Debug\netcoreapp2.1\CLIENT.AssemblyInfo.cs
 D:\Metrodata\BRM2.0\CLIENT\obj\Debug\netcoreapp2.1\CLIENT.csproj.CoreCompileInputs.cache
 D:\Metrodata\BRM2.0\CLIENT\obj\Debug\netcoreapp2.1\CLIENT.RazorAssemblyInfo.cache
 D:\Metrodata\BRM2.0\CLIENT\obj\Debug\netcoreapp2.1\CLIENT.RazorAssemblyInfo.cs
 D:\Metrodata\BRM2.0\CLIENT\obj\Debug\netcoreapp2.1\UserSecretsAssemblyInfo.cs
-D:\Metrodata\BRM2.0\CLIENT\obj\Debug\netcoreapp2.1\CLIENT.AssemblyInfoInputs.cache
-D:\Metrodata\BRM2.0\CLIENT\obj\Debug\netcoreapp2.1\CLIENT.AssemblyInfo.cs
 D:\Metrodata\BRM2.0\CLIENT\obj\Debug\netcoreapp2.1\CLIENT.TagHelpers.input.cache
 D:\Metrodata\BRM2.0\CLIENT\obj\Debug\netcoreapp2.1\CLIENT.TagHelpers.output.cache
 D:\Metrodata\BRM2.0\CLIENT\obj\Debug\netcoreapp2.1\CLIENT.RazorCoreGenerate.cache

@@ -15,9 +15,9 @@ namespace API.ViewModels
         public string Department { get; set; }
         public string Note { get; set; }
         public string Customer { get; set; }
-        public DateTimeOffset? Created_By { get; set; }
+        public string Created_By { get; set; }
         public DateTimeOffset? Created_Date { get; set; }
-        public DateTimeOffset? Update_By { get; set; }
+        public string Update_By { get; set; }
         public DateTimeOffset? Update_Date { get; set; }
     }
 }
